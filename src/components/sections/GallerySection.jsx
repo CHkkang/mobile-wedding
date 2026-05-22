@@ -102,52 +102,60 @@ function GalleryModal({ images, initialIndex, onClose }) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] grid h-dvh w-dvw place-items-center bg-wedding-ink/70 px-4 py-8"
+      className="fixed inset-0 z-[100] h-dvh w-dvw overflow-hidden bg-wedding-ink"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={`웨딩 갤러리 사진 ${currentIndex + 1} 크게 보기`}
     >
       <div
-        className="relative flex h-full w-full max-w-[520px] items-center"
-        onClick={(event) => event.stopPropagation()}
+        className="relative h-full w-full"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
+        <img
+          key={currentImage}
+          className="gallery-spin-in h-full w-full object-cover"
+          src={currentImage}
+          alt={`웨딩 갤러리 큰 사진 ${currentIndex + 1}`}
+          onClick={(event) => event.stopPropagation()}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45" />
         <button
-          className="pressable absolute right-0 top-0 z-10 rounded-full border border-white/60 bg-wedding-white/88 px-4 py-2 text-[13px] font-semibold text-wedding-ink/72 shadow-[0_10px_28px_rgba(0,0,0,0.14)]"
+          className="pressable absolute right-4 top-5 z-10 rounded-full border border-white/55 bg-black/82 px-5 py-3 text-[13px] font-semibold text-white shadow-[0_14px_34px_rgba(0,0,0,0.42)]"
           onClick={onClose}
           aria-label="큰 사진 닫기"
         >
           닫기
         </button>
         <button
-          className="pressable absolute left-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-wedding-white/88 text-[22px] font-semibold text-wedding-ink/72 shadow-[0_10px_28px_rgba(0,0,0,0.14)]"
+          className="pressable absolute left-4 top-1/2 z-10 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border border-white/55 bg-black/82 text-[34px] font-semibold leading-none text-white shadow-[0_14px_34px_rgba(0,0,0,0.42)]"
           type="button"
           aria-label="이전 사진 보기"
-          onClick={showPrevious}
+          onClick={(event) => {
+            event.stopPropagation();
+            showPrevious();
+          }}
         >
           ‹
         </button>
-        <div className="flex w-full flex-col items-center">
-          <img
-            key={currentImage}
-            className="gallery-spin-in max-h-[78dvh] w-full rounded-2xl object-contain shadow-[0_18px_50px_rgba(0,0,0,0.2)]"
-            src={currentImage}
-            alt={`웨딩 갤러리 큰 사진 ${currentIndex + 1}`}
-          />
-          <p className="mt-4 rounded-full border border-white/45 bg-wedding-white/86 px-4 py-2 text-[12px] font-semibold text-wedding-ink/62 shadow-[0_10px_28px_rgba(0,0,0,0.12)]">
-            {currentIndex + 1} / {images.length}
-          </p>
-        </div>
         <button
-          className="pressable absolute right-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-wedding-white/88 text-[22px] font-semibold text-wedding-ink/72 shadow-[0_10px_28px_rgba(0,0,0,0.14)]"
+          className="pressable absolute right-4 top-1/2 z-10 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border border-white/55 bg-black/82 text-[34px] font-semibold leading-none text-white shadow-[0_14px_34px_rgba(0,0,0,0.42)]"
           type="button"
           aria-label="다음 사진 보기"
-          onClick={showNext}
+          onClick={(event) => {
+            event.stopPropagation();
+            showNext();
+          }}
         >
           ›
         </button>
+        <p
+          className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 rounded-full border border-white/55 bg-black/74 px-4 py-2 text-[12px] font-semibold text-white shadow-[0_14px_34px_rgba(0,0,0,0.36)]"
+          onClick={(event) => event.stopPropagation()}
+        >
+          {currentIndex + 1} / {images.length}
+        </p>
       </div>
     </div>,
     document.body,

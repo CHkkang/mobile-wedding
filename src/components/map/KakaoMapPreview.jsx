@@ -77,7 +77,7 @@ export function KakaoMapPreview({ address, appKey, mapQuery, venue }) {
             <div className="h-5 w-5 rounded-full border-[5px] border-wedding-accent bg-wedding-white" />
             <div className="mx-auto h-5 w-[2px] bg-wedding-accent" />
           </div>
-          <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/55 bg-white/45 px-4 py-3 text-center backdrop-blur-md">
+          <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/70 bg-white/85 px-4 py-3 text-center shadow-[0_10px_26px_rgba(43,43,43,0.08)]">
             <p className="text-[14px] font-semibold text-wedding-ink">{venue}</p>
             <p className="mt-1 text-[12px] text-wedding-ink/60">{address}</p>
           </div>

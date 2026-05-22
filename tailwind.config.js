@@ -14,8 +14,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'sans-serif'],
-        body: ['Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'sans-serif'],
+        display: ['Noto Sans KR', 'sans-serif'],
+        body: ['Noto Sans KR', 'sans-serif'],
       },
     },
   },

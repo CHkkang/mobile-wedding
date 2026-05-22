@@ -111,7 +111,7 @@ export function BgmToggle({ src, title = 'Wedding BGM' }) {
         title={title}
       />
       <button
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/75 text-wedding-ink shadow-[0_10px_30px_rgba(43,43,43,0.14)] backdrop-blur-md transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-wedding-mocha/30"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/90 text-wedding-ink shadow-[0_10px_30px_rgba(43,43,43,0.14)] transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-wedding-mocha/30"
         type="button"
         aria-label={isPlaying ? '배경 음악 정지' : '배경 음악 재생'}
         aria-pressed={isPlaying}

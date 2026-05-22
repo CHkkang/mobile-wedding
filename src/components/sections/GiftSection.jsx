@@ -76,7 +76,7 @@ function formatAccount(account) {
 function GiftActionButton({ label, onClick }) {
   return (
     <button
-      className="rounded-full border border-wedding-accent/35 bg-wedding-white/50 px-2 py-3 text-[12px] text-wedding-ink/75 backdrop-blur"
+      className="rounded-full border border-wedding-accent/35 bg-wedding-white/80 px-2 py-3 text-[12px] text-wedding-ink/75 shadow-[0_8px_20px_rgba(43,43,43,0.04)]"
       onClick={onClick}
     >
       {label}

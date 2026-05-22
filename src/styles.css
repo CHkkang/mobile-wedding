@@ -1,4 +1,4 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,7 @@
 :root {
   color: #2b2b2b;
   background: #f7f4ef;
-  font-family: Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -20,7 +20,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -70,8 +69,8 @@ body::before {
 
 .snap-section {
   min-height: 100svh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  content-visibility: auto;
+  contain-intrinsic-size: 100svh;
 }
 
 .map-preview {
@@ -89,15 +88,31 @@ body::before {
 
 .reveal-section {
   opacity: 0;
-  transform: translateY(34px) scale(0.985);
+  transform: translateY(18px);
   transition:
-    opacity 560ms ease,
-    transform 560ms cubic-bezier(0.2, 0.9, 0.2, 1);
+    opacity 360ms ease,
+    transform 360ms ease;
 }
 
 .reveal-section.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  body::before {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .snap-section {
+    scroll-snap-align: start;
+  }
 }
 
 @keyframes gallery-spin-in {

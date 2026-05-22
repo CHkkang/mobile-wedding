@@ -16,8 +16,8 @@ export function HeroSection({ wedding }) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/35" />
         <div className="absolute inset-0 bg-wedding-frost/15 mix-blend-screen" />
-        <div className="absolute bottom-8 left-1/2 w-[86%] -translate-x-1/2 rounded-2xl border border-white/35 bg-white/20 px-6 py-7 text-center text-white backdrop-blur-md">
-          <p className="font-display text-[34px] leading-none tracking-[0.12em]">
+        <div className="absolute bottom-8 left-1/2 w-[90%] -translate-x-1/2 rounded-2xl border border-white/40 bg-black/18 px-4 py-7 text-center text-white shadow-[0_18px_40px_rgba(0,0,0,0.14)]">
+          <p className="whitespace-nowrap font-display text-[clamp(27px,8vw,34px)] leading-none">
             {wedding.groom} &amp; {wedding.bride}
           </p>
           <p className="mt-4 text-[13px] tracking-[0.26em]">{wedding.date}</p>

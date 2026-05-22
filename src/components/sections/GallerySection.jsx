@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { galleryImages } from '../../data/wedding';
 import { Section } from '../common/Section';
 
@@ -40,28 +41,32 @@ export function GallerySection() {
  * @returns {JSX.Element} Gallery modal UI를 반환합니다.
  */
 function GalleryModal({ image, onClose }) {
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-40 grid place-items-center bg-wedding-ink/55 px-5 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] grid h-dvh w-dvw place-items-center bg-wedding-ink/80 px-4 py-8"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={`웨딩 갤러리 사진 ${image.index + 1} 크게 보기`}
     >
-      <div className="relative w-full max-w-[420px]" onClick={(event) => event.stopPropagation()}>
+      <div
+        className="relative flex h-full w-full max-w-[520px] items-center"
+        onClick={(event) => event.stopPropagation()}
+      >
         <button
-          className="absolute -right-1 -top-12 rounded-full border border-white/50 bg-white/25 px-4 py-2 text-[13px] text-white backdrop-blur"
+          className="absolute right-0 top-0 z-10 rounded-full border border-white/45 bg-black/35 px-4 py-2 text-[13px] text-white"
           onClick={onClose}
           aria-label="큰 사진 닫기"
         >
           닫기
         </button>
         <img
-          className="gallery-spin-in max-h-[78vh] w-full rounded-2xl object-contain"
+          className="gallery-spin-in max-h-full w-full rounded-2xl object-contain"
           src={image.src}
           alt={`웨딩 갤러리 큰 사진 ${image.index + 1}`}
         />
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

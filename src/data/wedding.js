@@ -18,10 +18,10 @@ export const wedding = {
     ],
   },
   calendar: {
-    title: '강찬혁 & 김민지 결혼식',
+    title: '강찬혁 & 김민지 결혼합니다',
     startDateTime: '2026-12-12T11:00:00+09:00',
     endDateTime: '2026-12-12T13:00:00+09:00',
-    description: '강찬혁 & 김민지 결혼식에 초대합니다.',
+    description: '2026년 12월 12일 토요일 아침 11시, 여의도 더파티움에서 소중한 분들을 초대합니다.',
     filename: 'chanhyuk-minji-wedding.ics',
   },
   contacts: [

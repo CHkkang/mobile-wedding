@@ -2,12 +2,12 @@ import { Section } from '../common/Section';
 
 /**
  * 초대 문구를 담는 invitation section입니다.
- * @param {{parents: {groom: string, bride: string}}} props 양가 부모님 정보입니다.
+ * @param {{parents: {groom: string, bride: string}, nextId?: string}} props 양가 부모님 정보입니다.
  * @returns {JSX.Element} Invitation UI를 반환합니다.
  */
-export function InvitationSection({ parents }) {
+export function InvitationSection({ parents, nextId }) {
   return (
-    <Section id="invitation" eyebrow="Invitation" title="초대합니다">
+    <Section id="invitation" eyebrow="Invitation" title="초대합니다" nextId={nextId}>
       <div className="relative text-center">
         <div className="mx-auto mb-7 flex h-12 w-12 items-center justify-center rounded-full border border-wedding-champagne/45 bg-wedding-white/70 text-[22px] text-wedding-champagne">
           “

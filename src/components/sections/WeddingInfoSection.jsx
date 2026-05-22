@@ -4,12 +4,12 @@ import { Section } from '../common/Section';
 
 /**
  * 예식 일시와 장소 정보를 제공하는 section입니다.
- * @param {{wedding: {date: string, time: string, venue: string}, onCalendarDownload: () => void}} props 예식 정보와 calendar handler입니다.
+ * @param {{wedding: {date: string, time: string, venue: string}, nextId?: string, onCalendarDownload: () => void}} props 예식 정보와 calendar handler입니다.
  * @returns {JSX.Element} Wedding info UI를 반환합니다.
  */
-export function WeddingInfoSection({ wedding, onCalendarDownload }) {
+export function WeddingInfoSection({ wedding, nextId, onCalendarDownload }) {
   return (
-    <Section id="info" eyebrow="Wedding Day" title="예식정보">
+    <Section id="info" eyebrow="Wedding Day" title="예식정보" nextId={nextId}>
       <BlurCard>
         <div className="mb-3 rounded-2xl bg-wedding-petal/55 px-4 py-5 text-center">
           <p className="text-[12px] font-medium tracking-[0.2em] text-wedding-champagne">
@@ -21,7 +21,7 @@ export function WeddingInfoSection({ wedding, onCalendarDownload }) {
         <InfoRow label="시간" value={wedding.time} />
         <InfoRow label="장소" value={wedding.venue} />
         <button
-          className="luxury-button mt-5 w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] transition hover:border-wedding-blush hover:text-wedding-ink"
+          className="pressable luxury-button mt-5 w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] hover:border-wedding-blush hover:text-wedding-ink"
           type="button"
           onClick={onCalendarDownload}
         >

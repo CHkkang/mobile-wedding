@@ -5,18 +5,19 @@ import { Section } from '../common/Section';
 
 /**
  * 웨딩 사진을 2열 grid로 보여주는 gallery section입니다.
+ * @param {{nextId?: string}} props 다음 section id입니다.
  * @returns {JSX.Element} Gallery UI를 반환합니다.
  */
-export function GallerySection() {
+export function GallerySection({ nextId }) {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <Section id="gallery" eyebrow="Gallery" title="Gallery">
-      <div className="grid grid-cols-2 gap-3">
+    <Section id="gallery" eyebrow="Gallery" title="Gallery" nextId={nextId}>
+      <div className="stagger-grid grid grid-cols-2 gap-3">
         {galleryImages.map((image, index) => (
           <button
             key={image}
-            className="aspect-[3/4] overflow-hidden rounded-[22px] bg-wedding-mist shadow-[0_14px_34px_rgba(80,64,54,0.12)]"
+            className="pressable aspect-[3/4] overflow-hidden rounded-[22px] bg-wedding-mist shadow-[0_14px_34px_rgba(80,64,54,0.12)]"
             onClick={() => setSelectedImage({ src: image, index })}
             aria-label={`웨딩 갤러리 사진 ${index + 1} 크게 보기`}
           >
@@ -55,7 +56,7 @@ function GalleryModal({ image, onClose }) {
         onClick={(event) => event.stopPropagation()}
       >
         <button
-          className="absolute right-0 top-0 z-10 rounded-full border border-white/60 bg-wedding-white/88 px-4 py-2 text-[13px] font-semibold text-wedding-ink/72 shadow-[0_10px_28px_rgba(0,0,0,0.14)]"
+          className="pressable absolute right-0 top-0 z-10 rounded-full border border-white/60 bg-wedding-white/88 px-4 py-2 text-[13px] font-semibold text-wedding-ink/72 shadow-[0_10px_28px_rgba(0,0,0,0.14)]"
           onClick={onClose}
           aria-label="큰 사진 닫기"
         >

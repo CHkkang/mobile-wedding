@@ -63,7 +63,7 @@ export function IntroVideoOverlay({ videoId, greeting, durationMs, onFinish }) {
         <div className="mx-auto mt-7 h-px w-24 bg-white/55" />
       </div>
       <button
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 rounded-full border border-white/45 bg-white/12 px-5 py-3 text-[13px] font-medium text-white"
+        className="pressable absolute bottom-8 left-1/2 z-10 -translate-x-1/2 rounded-full border border-white/45 bg-white/12 px-5 py-3 text-[13px] font-medium text-white"
         type="button"
         onClick={onFinish}
       >

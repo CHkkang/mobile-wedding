@@ -32,7 +32,7 @@ export function ModalShell({ eyebrow, title, ariaLabel, children, onClose }) {
               </h3>
             </div>
             <button
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-wedding-champagne/35 bg-wedding-white/90 text-[13px] font-semibold text-wedding-ink/62 shadow-[0_8px_20px_rgba(80,64,54,0.06)]"
+              className="pressable flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-wedding-champagne/35 bg-wedding-white/90 text-[13px] font-semibold text-wedding-ink/62 shadow-[0_8px_20px_rgba(80,64,54,0.06)]"
               type="button"
               aria-label={`${title} 닫기`}
               onClick={onClose}

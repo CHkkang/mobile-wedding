@@ -2,10 +2,10 @@ import { ScrollCue } from '../common/ScrollCue';
 
 /**
  * 큰 세로사진과 핵심 wedding identity를 보여주는 hero section입니다.
- * @param {{wedding: {groom: string, bride: string, heroDate: string, venue: string, images: {hero: string}}}} props Wedding 기본 정보입니다.
+ * @param {{wedding: {groom: string, bride: string, heroDate: string, venue: string, images: {hero: string}}, nextId?: string}} props Wedding 기본 정보입니다.
  * @returns {JSX.Element} Hero UI를 반환합니다.
  */
-export function HeroSection({ wedding }) {
+export function HeroSection({ wedding, nextId }) {
   return (
     <section className="snap-section relative min-h-screen overflow-hidden bg-wedding-ink text-white">
       <img
@@ -27,7 +27,9 @@ export function HeroSection({ wedding }) {
         <p className="mt-7 text-[15px] font-medium leading-7 text-white/88">{wedding.heroDate}</p>
         <p className="mt-2 text-[15px] font-medium leading-7 text-white/88">{wedding.venue}</p>
       </div>
-      <ScrollCue />
+      <div className="absolute bottom-8 left-0 right-0 z-10">
+        <ScrollCue targetId={nextId} tone="light" />
+      </div>
     </section>
   );
 }

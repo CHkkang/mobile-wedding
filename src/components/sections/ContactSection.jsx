@@ -4,12 +4,12 @@ import { Section } from '../common/Section';
 
 /**
  * 연락처 목록을 전화/문자 action으로 표시하는 section입니다.
- * @param {{contacts: Array<{label: string, name: string, phone: string}>}} props 연락처 데이터입니다.
+ * @param {{contacts: Array<{label: string, name: string, phone: string}>, nextId?: string}} props 연락처 데이터입니다.
  * @returns {JSX.Element} Contact action UI를 반환합니다.
  */
-export function ContactSection({ contacts }) {
+export function ContactSection({ contacts, nextId }) {
   return (
-    <Section id="contact" eyebrow="Contact" title="연락하기">
+    <Section id="contact" eyebrow="Contact" title="연락하기" nextId={nextId}>
       <div className="space-y-3">
         {contacts.map((contact) => (
           <BlurCard key={contact.label}>
@@ -40,7 +40,7 @@ export function ContactSection({ contacts }) {
 function ContactLink({ href, label }) {
   return (
     <a
-      className="rounded-full border border-wedding-champagne/40 bg-wedding-white/90 px-3 py-3 text-center text-[12px] font-medium text-wedding-ink/72 shadow-[0_8px_20px_rgba(80,64,54,0.05)]"
+      className="pressable rounded-full border border-wedding-champagne/40 bg-wedding-white/90 px-3 py-3 text-center text-[12px] font-medium text-wedding-ink/72 shadow-[0_8px_20px_rgba(80,64,54,0.05)]"
       href={href}
     >
       {label}

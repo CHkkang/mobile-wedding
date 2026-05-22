@@ -81,13 +81,17 @@ export default function App() {
         />
       )}
       <div className="mx-auto max-w-[480px] overflow-hidden bg-wedding-ivory shadow-[0_0_70px_rgba(43,43,43,0.08)]">
-        <HeroSection wedding={wedding} />
-        <InvitationSection parents={wedding.parents} />
-        <WeddingInfoSection wedding={wedding} onCalendarDownload={handleCalendarDownload} />
-        <LocationSection wedding={wedding} onCopy={handleCopy} />
-        <GallerySection />
-        <GiftSection accounts={wedding.accounts} onCopy={handleCopy} />
-        <ContactSection contacts={wedding.contacts} />
+        <HeroSection wedding={wedding} nextId="invitation" />
+        <InvitationSection parents={wedding.parents} nextId="info" />
+        <WeddingInfoSection
+          wedding={wedding}
+          nextId="location"
+          onCalendarDownload={handleCalendarDownload}
+        />
+        <LocationSection wedding={wedding} nextId="gallery" onCopy={handleCopy} />
+        <GallerySection nextId="gift" />
+        <GiftSection accounts={wedding.accounts} nextId="contact" onCopy={handleCopy} />
+        <ContactSection contacts={wedding.contacts} nextId="thanks" />
         <ThanksSection wedding={wedding} onShare={handleShare} />
       </div>
       {!isIntroVisible && <BgmToggle src={wedding.bgm.src} title={wedding.bgm.title} />}

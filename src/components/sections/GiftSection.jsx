@@ -5,10 +5,10 @@ import { Section } from '../common/Section';
 
 /**
  * 축의금 계좌 정보를 표시하는 section입니다.
- * @param {{accounts: Array<{label: string, bank: string, number: string, holder: string, kakaoPayUrl?: string, tossUrl?: string}>, onCopy: (text: string, successMessage: string) => Promise<void>}} props Gift action props입니다.
+ * @param {{accounts: Array<{label: string, side: string, bank: string, number: string, holder: string, kakaoPayUrl?: string, tossUrl?: string}>, nextId?: string, onCopy: (text: string, successMessage: string) => Promise<void>}} props Gift action props입니다.
  * @returns {JSX.Element} Gift account UI를 반환합니다.
  */
-export function GiftSection({ accounts, onCopy }) {
+export function GiftSection({ accounts, nextId, onCopy }) {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const groupedAccounts = [
     {
@@ -43,7 +43,7 @@ export function GiftSection({ accounts, onCopy }) {
   };
 
   return (
-    <Section id="gift" eyebrow="With Heart" title="마음 전하실 곳">
+    <Section id="gift" eyebrow="With Heart" title="마음 전하실 곳" nextId={nextId}>
       <BlurCard>
         <div className="py-3 text-center">
           <p className="text-[15px] leading-8 text-wedding-ink/72">
@@ -60,7 +60,7 @@ export function GiftSection({ accounts, onCopy }) {
             {groupedAccounts.map((group) => (
               <button
                 key={group.title}
-                className="luxury-button w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] transition hover:border-wedding-blush hover:text-wedding-ink"
+                className="pressable luxury-button w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] hover:border-wedding-blush hover:text-wedding-ink"
                 type="button"
                 onClick={() => setSelectedGroup(group)}
               >
@@ -95,7 +95,7 @@ function GiftAccountModal({ group, onClose, onCopy, onPayment }) {
       ariaLabel={`${group.title} 계좌번호 보기`}
       onClose={onClose}
     >
-      <div className="space-y-4">
+      <div className="stagger-grid space-y-4">
           {group.accounts.map((account) => (
             <article
               key={account.label}
@@ -152,7 +152,7 @@ function formatAccount(account) {
 function GiftActionButton({ label, onClick }) {
   return (
     <button
-      className="rounded-full border border-wedding-champagne/40 bg-wedding-white/90 px-2 py-3 text-[12px] font-medium text-wedding-ink/72 shadow-[0_8px_20px_rgba(80,64,54,0.05)] transition hover:border-wedding-blush hover:text-wedding-ink"
+      className="pressable rounded-full border border-wedding-champagne/40 bg-wedding-white/90 px-2 py-3 text-[12px] font-medium text-wedding-ink/72 shadow-[0_8px_20px_rgba(80,64,54,0.05)] hover:border-wedding-blush hover:text-wedding-ink"
       onClick={onClick}
     >
       {label}

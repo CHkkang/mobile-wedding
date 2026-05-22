@@ -3,10 +3,10 @@ import { ScrollCue } from './ScrollCue';
 
 /**
  * 청첩장 본문 section의 공통 layout component입니다.
- * @param {{id: string, eyebrow: string, title: string, children: React.ReactNode}} props Section props입니다.
+ * @param {{id: string, eyebrow: string, title: string, nextId?: string, children: React.ReactNode}} props Section props입니다.
  * @returns {JSX.Element} 공통 section layout을 반환합니다.
  */
-export function Section({ id, eyebrow, title, children }) {
+export function Section({ id, eyebrow, title, nextId, children }) {
   const [sectionRef, isVisible] = useRevealOnScroll();
 
   return (
@@ -29,7 +29,7 @@ export function Section({ id, eyebrow, title, children }) {
         </div>
       </div>
       {children}
-      <ScrollCue />
+      <ScrollCue targetId={nextId} />
     </section>
   );
 }

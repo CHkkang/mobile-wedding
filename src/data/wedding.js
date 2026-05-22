@@ -54,13 +54,13 @@ export const wedding = {
       label: '신부 아버지',
       side: 'bride',
       name: '김영수',
-      phone: '010-0000-0000',
+      phone: '010-9192-2978',
     },
     {
       label: '신부 어머니',
       side: 'bride',
       name: '윤희자',
-      phone: '010-0000-0000',
+      phone: '010-5539-2978',
     },
   ],
   bgm: {

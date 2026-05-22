@@ -26,8 +26,9 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Noto Sans KR', 'sans-serif'],
-        body: ['Noto Sans KR', 'sans-serif'],
+        display: ['Maru Buri', 'Noto Sans KR', 'serif'],
+        body: ['Maru Buri', 'Noto Sans KR', 'serif'],
+        ui: ['Noto Sans KR', 'sans-serif'],
       },
     },
   },

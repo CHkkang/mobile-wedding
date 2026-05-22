@@ -16,7 +16,7 @@ export function Section({ id, eyebrow, title, nextId, children }) {
       className={`snap-section reveal-section px-6 py-16 ${isVisible ? 'is-visible' : ''}`}
     >
       <div className="mb-9 text-center">
-        <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-wedding-champagne">
+        <p className="ui-font text-[11px] font-medium uppercase tracking-[0.34em] text-wedding-champagne">
           {eyebrow}
         </p>
         <h2 className="mt-3 font-display text-[31px] font-medium tracking-[0.02em] text-wedding-ink">

@@ -25,7 +25,7 @@ export function ContactSection({ contacts, nextId }) {
             key={group.title}
             className="polish-card wedding-card rounded-[24px] border border-white/80 p-3 shadow-[0_18px_50px_rgba(80,64,54,0.1),inset_0_0_0_1px_rgba(216,196,166,0.16)]"
           >
-            <p className="text-center text-[13px] font-semibold tracking-[0.18em] text-wedding-champagne">
+            <p className="ui-font text-center text-[13px] font-semibold tracking-[0.18em] text-wedding-champagne">
               {group.title}
             </p>
             <div className="mt-4 space-y-2">
@@ -48,7 +48,7 @@ export function ContactSection({ contacts, nextId }) {
 function ContactRow({ contact }) {
   return (
     <div className="rounded-[18px] border border-wedding-champagne/20 bg-wedding-white/62 p-3 text-center">
-      <p className="mx-auto inline-flex rounded-full bg-wedding-petal/75 px-2.5 py-1 text-[11px] font-medium text-wedding-ink/65">
+      <p className="ui-font mx-auto inline-flex rounded-full bg-wedding-petal/75 px-2.5 py-1 text-[11px] font-medium text-wedding-ink/65">
         {contact.label.replace('신랑 ', '').replace('신부 ', '')}
       </p>
       <p className="mt-2 text-[15px] font-semibold text-wedding-ink">{contact.name}</p>

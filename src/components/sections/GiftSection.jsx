@@ -106,7 +106,7 @@ function GiftAccountModal({ group, onClose, onCopy, onPayment }) {
               key={account.label}
               className="rounded-[22px] border border-wedding-champagne/25 bg-wedding-white/82 p-5 shadow-[0_10px_28px_rgba(80,64,54,0.05)]"
             >
-              <p className="inline-flex rounded-full bg-wedding-petal/75 px-3 py-1 text-[12px] font-medium text-wedding-ink/65">
+              <p className="ui-font inline-flex rounded-full bg-wedding-petal/75 px-3 py-1 text-[12px] font-medium text-wedding-ink/65">
                 {account.label}
               </p>
               <p className="mt-4 text-[13px] font-medium text-wedding-ink/62">예금주</p>

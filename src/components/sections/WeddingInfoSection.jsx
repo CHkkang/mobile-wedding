@@ -15,13 +15,13 @@ export function WeddingInfoSection({ wedding, nextId, onCalendarDownload }) {
     <Section id="info" eyebrow="Wedding Day" title="예식정보" nextId={nextId}>
       <BlurCard>
         <div className="mb-4 rounded-[22px] border border-wedding-champagne/25 bg-wedding-petal/55 px-4 py-5 text-center shadow-[inset_0_0_0_1px_rgba(255,255,255,0.48)]">
-          <p className="text-[12px] font-medium tracking-[0.2em] text-wedding-champagne">
+          <p className="ui-font text-[12px] font-medium tracking-[0.2em] text-wedding-champagne">
             DECEMBER
           </p>
           <p className="mt-2 text-[34px] font-semibold leading-none text-wedding-ink">12</p>
         </div>
         <div className="mb-3 rounded-[22px] border border-wedding-champagne/30 bg-wedding-white/82 px-5 py-5 text-center shadow-[0_12px_32px_rgba(80,64,54,0.06)]">
-          <p className="text-[11px] font-semibold tracking-[0.28em] text-wedding-champagne">
+          <p className="ui-font text-[11px] font-semibold tracking-[0.28em] text-wedding-champagne">
             WEDDING D-DAY
           </p>
           <p className="mt-3 text-[32px] font-semibold leading-none text-wedding-ink">

@@ -54,7 +54,7 @@ export function IntroVideoOverlay({ videoId, greeting, durationMs, onFinish }) {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/65" />
       <div className="intro-copy absolute inset-x-0 top-1/2 mx-auto w-full max-w-[480px] -translate-y-1/2 px-7 text-center">
-        <p className="text-[12px] font-medium tracking-[0.34em] text-white/70">
+        <p className="ui-font text-[12px] font-medium tracking-[0.34em] text-white/70">
           CHANHYUK &amp; MINJI
         </p>
         <h1 className="mt-5 whitespace-nowrap text-[clamp(38px,12vw,58px)] font-semibold leading-none tracking-[-0.01em]">

@@ -10,7 +10,7 @@ export const wedding = {
   mapQuery: '여의도 더 파티움',
   images: {
     hero:
-      'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1100&q=88',
+      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1100&q=88',
     gallery: [
       'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85',
       'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85',

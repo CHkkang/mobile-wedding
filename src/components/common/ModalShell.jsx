@@ -23,7 +23,7 @@ export function ModalShell({ eyebrow, title, ariaLabel, children, onClose }) {
           <div className="flex items-start justify-between gap-4">
             <div>
               {eyebrow && (
-                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-wedding-champagne">
+                <p className="ui-font text-[11px] font-semibold uppercase tracking-[0.3em] text-wedding-champagne">
                   {eyebrow}
                 </p>
               )}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { createPortal } from 'react-dom';
 import { BlurCard } from '../common/BlurCard';
+import { ModalShell } from '../common/ModalShell';
 import { Section } from '../common/Section';
 
 /**
@@ -88,41 +88,18 @@ export function GiftSection({ accounts, onCopy }) {
  * @returns {JSX.Element} 선택한 그룹 계좌 modal UI를 반환합니다.
  */
 function GiftAccountModal({ group, onClose, onCopy, onPayment }) {
-  return createPortal(
-    <div
-      className="fixed inset-0 z-[110] overflow-y-auto bg-wedding-ink/72 px-5 py-7"
-      role="dialog"
-      aria-modal="true"
-      aria-label={`${group.title} 계좌번호 보기`}
-      onClick={onClose}
+  return (
+    <ModalShell
+      eyebrow="With Heart"
+      title={`${group.title} 계좌번호`}
+      ariaLabel={`${group.title} 계좌번호 보기`}
+      onClose={onClose}
     >
-      <div
-        className="mx-auto min-h-full w-full max-w-[420px] rounded-[28px] bg-wedding-ivory px-5 py-6 shadow-[0_22px_70px_rgba(0,0,0,0.28)]"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-[11px] font-semibold tracking-[0.3em] text-wedding-champagne">
-              WITH HEART
-            </p>
-            <h3 className="mt-2 text-[25px] font-semibold text-wedding-ink">
-              {group.title} 계좌번호
-            </h3>
-          </div>
-          <button
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-wedding-champagne/35 bg-wedding-white/85 text-[18px] text-wedding-ink/70"
-            type="button"
-            aria-label="계좌 모달 닫기"
-            onClick={onClose}
-          >
-            ×
-          </button>
-        </div>
-        <div className="mt-7 space-y-4">
+      <div className="space-y-4">
           {group.accounts.map((account) => (
             <article
               key={account.label}
-              className="rounded-[22px] border border-wedding-champagne/25 bg-wedding-white/78 p-5"
+              className="rounded-[22px] border border-wedding-champagne/25 bg-wedding-white/82 p-5 shadow-[0_10px_28px_rgba(80,64,54,0.05)]"
             >
               <p className="inline-flex rounded-full bg-wedding-petal/75 px-3 py-1 text-[12px] font-medium text-wedding-ink/65">
                 {account.label}
@@ -153,10 +130,8 @@ function GiftAccountModal({ group, onClose, onCopy, onPayment }) {
               </div>
             </article>
           ))}
-        </div>
       </div>
-    </div>,
-    document.body,
+    </ModalShell>
   );
 }
 

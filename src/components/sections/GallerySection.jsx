@@ -44,7 +44,7 @@ export function GallerySection() {
 function GalleryModal({ image, onClose }) {
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] grid h-dvh w-dvw place-items-center bg-wedding-ink/80 px-4 py-8"
+      className="fixed inset-0 z-[100] grid h-dvh w-dvw place-items-center bg-[#2b2724]/70 px-4 py-8"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -55,7 +55,7 @@ function GalleryModal({ image, onClose }) {
         onClick={(event) => event.stopPropagation()}
       >
         <button
-          className="absolute right-0 top-0 z-10 rounded-full border border-white/45 bg-black/35 px-4 py-2 text-[13px] text-white"
+          className="absolute right-0 top-0 z-10 rounded-full border border-white/60 bg-wedding-white/88 px-4 py-2 text-[13px] font-semibold text-wedding-ink/72 shadow-[0_10px_28px_rgba(0,0,0,0.14)]"
           onClick={onClose}
           aria-label="큰 사진 닫기"
         >

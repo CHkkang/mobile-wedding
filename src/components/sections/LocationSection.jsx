@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { createPortal } from 'react-dom';
 import { transitGuides } from '../../data/wedding';
 import { ActionButton } from '../common/ActionButton';
 import { BlurCard } from '../common/BlurCard';
+import { ModalShell } from '../common/ModalShell';
 import { Section } from '../common/Section';
 import { KakaoMapPreview } from '../map/KakaoMapPreview';
 
@@ -63,39 +63,13 @@ export function LocationSection({ wedding, onCopy }) {
  * @returns {JSX.Element} Transit guide modal UI를 반환합니다.
  */
 function TransitGuideModal({ guides, onClose }) {
-  return createPortal(
-    <div
-      className="fixed inset-0 z-[110] overflow-y-auto bg-wedding-ink/72 px-5 py-7"
-      role="dialog"
-      aria-modal="true"
-      aria-label="교통 안내 보기"
-      onClick={onClose}
-    >
-      <div
-        className="mx-auto min-h-full w-full max-w-[420px] rounded-[28px] bg-wedding-ivory px-5 py-6 shadow-[0_22px_70px_rgba(0,0,0,0.28)]"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-[11px] font-semibold tracking-[0.3em] text-wedding-champagne">
-              LOCATION
-            </p>
-            <h3 className="mt-2 text-[25px] font-semibold text-wedding-ink">교통 안내</h3>
-          </div>
-          <button
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-wedding-champagne/35 bg-wedding-white/85 text-[18px] text-wedding-ink/70"
-            type="button"
-            aria-label="교통 안내 모달 닫기"
-            onClick={onClose}
-          >
-            ×
-          </button>
-        </div>
-        <div className="mt-7 space-y-4 text-left">
+  return (
+    <ModalShell eyebrow="Location" title="교통 안내" ariaLabel="교통 안내 보기" onClose={onClose}>
+      <div className="space-y-4 text-left">
           {guides.map((guide) => (
             <article
               key={guide.title}
-              className="rounded-[22px] border border-wedding-champagne/25 bg-wedding-white/78 p-5"
+              className="rounded-[22px] border border-wedding-champagne/25 bg-wedding-white/82 p-5 shadow-[0_10px_28px_rgba(80,64,54,0.05)]"
             >
               <h4 className="text-[15px] font-semibold text-wedding-ink">{guide.title}</h4>
               <ul className="mt-3 space-y-2">
@@ -108,9 +82,7 @@ function TransitGuideModal({ guides, onClose }) {
               </ul>
             </article>
           ))}
-        </div>
       </div>
-    </div>,
-    document.body,
+    </ModalShell>
   );
 }

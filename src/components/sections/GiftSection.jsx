@@ -48,7 +48,7 @@ export function GiftSection({ accounts, nextId, onCopy }) {
   };
 
   return (
-    <Section id="gift" eyebrow="With Heart" title="마음 전하실 곳" nextId={nextId}>
+    <Section id="gift" eyebrow="V" title="With Heart" nextId={nextId}>
       <BlurCard>
         <div className="py-3 text-center">
           <p className="text-[15px] leading-8 text-wedding-ink/72">

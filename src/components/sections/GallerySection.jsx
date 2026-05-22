@@ -12,7 +12,7 @@ export function GallerySection({ nextId }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   return (
-    <Section id="gallery" eyebrow="Gallery" title="Gallery" nextId={nextId}>
+    <Section id="gallery" eyebrow="IV" title="Gallery" nextId={nextId}>
       <div className="stagger-grid grid grid-cols-2 gap-3">
         {galleryImages.map((image, index) => (
           <button

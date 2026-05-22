@@ -7,7 +7,7 @@ import { Section } from '../common/Section';
  */
 export function InvitationSection({ parents, nextId }) {
   return (
-    <Section id="invitation" eyebrow="Invitation" title="초대합니다" nextId={nextId}>
+    <Section id="invitation" eyebrow="I" title="Invitation" nextId={nextId}>
       <div className="relative text-center">
         <div className="mx-auto mb-7 flex h-12 w-12 items-center justify-center rounded-full border border-wedding-champagne/45 bg-wedding-white/70 text-[22px] text-wedding-champagne">
           “

@@ -13,7 +13,7 @@ export function WeddingInfoSection({ wedding, nextId, onCalendarDownload }) {
   const weddingDate = new Date(wedding.calendar.startDateTime);
 
   return (
-    <Section id="info" eyebrow="The Date" title="Wedding Day" nextId={nextId}>
+    <Section id="info" eyebrow="II" title="Wedding Day" nextId={nextId}>
       <BlurCard>
         <WeddingCalendar date={weddingDate} />
         <div className="mb-3 rounded-[22px] border border-wedding-champagne/30 bg-wedding-white/82 px-5 py-5 text-center shadow-[0_12px_32px_rgba(80,64,54,0.06)]">

@@ -18,7 +18,7 @@ export function ContactSection({ contacts, nextId }) {
   ];
 
   return (
-    <Section id="contact" eyebrow="Contact" title="축하 연락처" nextId={nextId}>
+    <Section id="contact" eyebrow="VI" title="Contact" nextId={nextId}>
       <div className="grid grid-cols-2 gap-3">
         {groupedContacts.map((group) => (
           <div

@@ -17,7 +17,7 @@ export function LocationSection({ wedding, nextId, onCopy }) {
   const [isTransitModalOpen, setIsTransitModalOpen] = useState(false);
 
   return (
-    <Section id="location" eyebrow="Location" title="오시는 길" nextId={nextId}>
+    <Section id="location" eyebrow="III" title="Location" nextId={nextId}>
       <BlurCard>
         <p className="text-center text-[16px] font-medium">{wedding.venue}</p>
         <p className="mt-1 text-center text-[14px] font-semibold text-wedding-champagne">

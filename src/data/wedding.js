@@ -73,8 +73,8 @@ export const wedding = {
     durationMs: 5200,
   },
   parents: {
-    groom: '강기홍 · 김은이의 차남 찬혁',
-    bride: '김영수 · 윤희자의 장녀 민지',
+    groom: '강기홍 · 김은이의 아들 찬혁',
+    bride: '김영수 · 윤희자의 딸 민지',
   },
   accounts: [
     {

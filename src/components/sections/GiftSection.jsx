@@ -13,12 +13,12 @@ export function GiftSection({ accounts, nextId, onCopy }) {
   const groupedAccounts = [
     {
       title: '신랑측',
-      buttonLabel: '신랑측 계좌번호 보기',
+      buttonLabel: '신랑측 계좌번호',
       accounts: accounts.filter((account) => account.side === 'groom'),
     },
     {
       title: '신부측',
-      buttonLabel: '신부측 계좌번호 보기',
+      buttonLabel: '신부측 계좌번호',
       accounts: accounts.filter((account) => account.side === 'bride'),
     },
   ];

@@ -10,16 +10,12 @@ import { getDaysUntil } from '../../utils/date';
  */
 export function WeddingInfoSection({ wedding, nextId, onCalendarDownload }) {
   const daysUntilWedding = getDaysUntil(wedding.calendar.startDateTime);
+  const weddingDate = new Date(wedding.calendar.startDateTime);
 
   return (
-    <Section id="info" eyebrow="Wedding Day" title="예식정보" nextId={nextId}>
+    <Section id="info" eyebrow="The Date" title="Wedding Day" nextId={nextId}>
       <BlurCard>
-        <div className="mb-4 rounded-[22px] border border-wedding-champagne/25 bg-wedding-petal/55 px-4 py-5 text-center shadow-[inset_0_0_0_1px_rgba(255,255,255,0.48)]">
-          <p className="ui-font text-[12px] font-medium tracking-[0.2em] text-wedding-champagne">
-            DECEMBER
-          </p>
-          <p className="mt-2 text-[34px] font-semibold leading-none text-wedding-ink">12</p>
-        </div>
+        <WeddingCalendar date={weddingDate} />
         <div className="mb-3 rounded-[22px] border border-wedding-champagne/30 bg-wedding-white/82 px-5 py-5 text-center shadow-[0_12px_32px_rgba(80,64,54,0.06)]">
           <p className="ui-font text-[11px] font-semibold tracking-[0.28em] text-wedding-champagne">
             WEDDING D-DAY
@@ -33,8 +29,6 @@ export function WeddingInfoSection({ wedding, nextId, onCalendarDownload }) {
         </div>
         <InfoRow label="날짜" value={wedding.date} />
         <InfoRow label="시간" value={wedding.time} />
-        <InfoRow label="장소" value={wedding.venue} />
-        <InfoRow label="홀" value={wedding.hall} />
         <button
           className="pressable luxury-button mt-5 w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] hover:border-wedding-blush hover:text-wedding-ink"
           type="button"
@@ -44,6 +38,67 @@ export function WeddingInfoSection({ wedding, nextId, onCalendarDownload }) {
         </button>
       </BlurCard>
     </Section>
+  );
+}
+
+/**
+ * 예식 날짜가 표시된 mini calendar UI입니다.
+ * @param {{date: Date}} props 예식 날짜입니다.
+ * @returns {JSX.Element} Mini calendar UI를 반환합니다.
+ */
+function WeddingCalendar({ date }) {
+  const monthLabel = `${date.getFullYear()}. ${String(date.getMonth() + 1).padStart(2, '0')}`;
+  const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+  const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  const calendarCells = [
+    ...Array.from({ length: firstDay }, (_, index) => ({ key: `empty-${index}`, day: null })),
+    ...Array.from({ length: daysInMonth }, (_, index) => ({
+      key: `day-${index + 1}`,
+      day: index + 1,
+    })),
+  ];
+
+  return (
+    <div className="mb-4 rounded-[24px] border border-wedding-champagne/25 bg-wedding-petal/55 px-4 py-5 text-center shadow-[inset_0_0_0_1px_rgba(255,255,255,0.48)]">
+      <p className="ui-font text-[12px] font-semibold tracking-[0.22em] text-wedding-champagne">
+        {monthLabel}
+      </p>
+      <div className="ui-font mt-4 grid grid-cols-7 gap-1 text-[11px] font-semibold text-wedding-ink/42">
+        {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((weekday, index) => (
+          <span key={`${weekday}-${index}`}>{weekday}</span>
+        ))}
+      </div>
+      <div className="ui-font mt-2 grid grid-cols-7 gap-1 text-[12px] text-wedding-ink/58">
+        {calendarCells.map((cell) => (
+          <span
+            key={cell.key}
+            className={`relative flex aspect-square items-center justify-center rounded-full ${
+              cell.day === date.getDate()
+                ? 'bg-wedding-champagne text-wedding-white shadow-[0_8px_18px_rgba(80,64,54,0.14)]'
+                : ''
+            }`}
+          >
+            {cell.day}
+            {cell.day === date.getDate() && (
+              <svg
+                aria-hidden="true"
+                className="absolute -right-1 -top-1 h-4 w-4 text-wedding-ink"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="m5 12 4 4 10-10"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="3"
+                />
+              </svg>
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }
 

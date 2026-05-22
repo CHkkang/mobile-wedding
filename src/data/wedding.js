@@ -2,7 +2,7 @@ export const wedding = {
   groom: '강찬혁',
   bride: '김민지',
   date: '2026. 12. 12 SAT',
-  heroDate: '2026년 12월 12일 토요일 아침 11시',
+  heroDate: '2026년 12월 12일 토요일 아침 11시 20분',
   time: '오전 11시 20분',
   venue: '여의도 더파티움',
   hall: 'B1 그랜드컨벤션홀',
@@ -22,7 +22,7 @@ export const wedding = {
     title: '강찬혁 & 김민지 결혼합니다',
     startDateTime: '2026-12-12T11:00:00+09:00',
     endDateTime: '2026-12-12T13:00:00+09:00',
-    description: '2026년 12월 12일 토요일 아침 11시, 여의도 더파티움에서 소중한 분들을 초대합니다.',
+    description: '2026년 12월 12일 토요일 아침 11시 20분, 여의도 더파티움에서 소중한 분들을 초대합니다.',
     filename: 'chanhyuk-minji-wedding.ics',
   },
   contacts: [

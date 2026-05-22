@@ -2,8 +2,9 @@ export const wedding = {
   groom: '강찬혁',
   bride: '김민지',
   date: '2026. 12. 12 SAT',
+  heroDate: '2026년 12월 12일 토요일 아침 11시',
   time: '오전 11시 20분',
-  venue: '여의도 더 파티움',
+  venue: '여의도 더파티움',
   address: '서울 영등포구 은행로 30',
   mapQuery: '여의도 더 파티움',
   bgm: {
@@ -22,6 +23,7 @@ export const wedding = {
   accounts: [
     {
       label: '신랑',
+      side: 'groom',
       bank: '국민은행',
       number: '000000-00-000000',
       holder: '강찬혁',
@@ -30,6 +32,7 @@ export const wedding = {
     },
     {
       label: '신랑 아버지',
+      side: 'groom',
       bank: '국민은행',
       number: '000000-00-000000',
       holder: '강기홍',
@@ -38,6 +41,7 @@ export const wedding = {
     },
     {
       label: '신랑 어머니',
+      side: 'groom',
       bank: '국민은행',
       number: '000000-00-000000',
       holder: '김은이',
@@ -46,6 +50,7 @@ export const wedding = {
     },
     {
       label: '신부',
+      side: 'bride',
       bank: '신한은행',
       number: '000-000-000000',
       holder: '김민지',
@@ -54,6 +59,7 @@ export const wedding = {
     },
     {
       label: '신부 아버지',
+      side: 'bride',
       bank: '신한은행',
       number: '000-000-000000',
       holder: '김영수',
@@ -62,6 +68,7 @@ export const wedding = {
     },
     {
       label: '신부 어머니',
+      side: 'bride',
       bank: '신한은행',
       number: '000-000-000000',
       holder: '윤희자',

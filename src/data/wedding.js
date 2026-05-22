@@ -68,8 +68,8 @@ export const wedding = {
     src: '/audio/wedding-bgm.mp3',
   },
   introVideo: {
-    youtubeId: 'TgzcM5Cvo4I',
-    greeting: '안녕~~~~~~',
+    youtubeId: 'vhpQPqpw3b4',
+    greeting: '우리 결혼해요',
     durationMs: 5200,
   },
   parents: {

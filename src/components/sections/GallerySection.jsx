@@ -129,7 +129,7 @@ function GalleryModal({ images, initialIndex, onClose }) {
           닫기
         </button>
         <button
-          className="pressable absolute left-4 top-1/2 z-10 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border border-white/55 bg-black/82 text-[34px] font-semibold leading-none text-white shadow-[0_14px_34px_rgba(0,0,0,0.42)]"
+          className="pressable absolute left-4 top-1/2 z-10 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border border-white/55 bg-black/82 text-white shadow-[0_14px_34px_rgba(0,0,0,0.42)]"
           type="button"
           aria-label="이전 사진 보기"
           onClick={(event) => {
@@ -137,10 +137,10 @@ function GalleryModal({ images, initialIndex, onClose }) {
             showPrevious();
           }}
         >
-          ‹
+          <ChevronLeftIcon />
         </button>
         <button
-          className="pressable absolute right-4 top-1/2 z-10 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border border-white/55 bg-black/82 text-[34px] font-semibold leading-none text-white shadow-[0_14px_34px_rgba(0,0,0,0.42)]"
+          className="pressable absolute right-4 top-1/2 z-10 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border border-white/55 bg-black/82 text-white shadow-[0_14px_34px_rgba(0,0,0,0.42)]"
           type="button"
           aria-label="다음 사진 보기"
           onClick={(event) => {
@@ -148,7 +148,7 @@ function GalleryModal({ images, initialIndex, onClose }) {
             showNext();
           }}
         >
-          ›
+          <ChevronRightIcon />
         </button>
         <p
           className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 rounded-full border border-white/55 bg-black/74 px-4 py-2 text-[12px] font-semibold text-white shadow-[0_14px_34px_rgba(0,0,0,0.36)]"
@@ -159,5 +159,41 @@ function GalleryModal({ images, initialIndex, onClose }) {
       </div>
     </div>,
     document.body,
+  );
+}
+
+/**
+ * 이전 사진 이동 icon입니다.
+ * @returns {JSX.Element} Left chevron SVG를 반환합니다.
+ */
+function ChevronLeftIcon() {
+  return (
+    <svg aria-hidden="true" className="h-7 w-7" viewBox="0 0 24 24" fill="none">
+      <path
+        d="m15 18-6-6 6-6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.4"
+      />
+    </svg>
+  );
+}
+
+/**
+ * 다음 사진 이동 icon입니다.
+ * @returns {JSX.Element} Right chevron SVG를 반환합니다.
+ */
+function ChevronRightIcon() {
+  return (
+    <svg aria-hidden="true" className="h-7 w-7" viewBox="0 0 24 24" fill="none">
+      <path
+        d="m9 18 6-6-6-6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.4"
+      />
+    </svg>
   );
 }

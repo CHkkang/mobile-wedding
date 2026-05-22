@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BgmToggle } from './components/common/BgmToggle';
 import { Toast } from './components/common/Toast';
 import { GallerySection } from './components/sections/GallerySection';
 import { GiftSection } from './components/sections/GiftSection';
@@ -39,6 +40,7 @@ export default function App() {
         <GiftSection accounts={wedding.accounts} onCopy={handleCopy} />
         <ThanksSection wedding={wedding} />
       </div>
+      <BgmToggle src={wedding.bgm.src} title={wedding.bgm.title} />
       <Toast message={toastMessage} />
     </main>
   );

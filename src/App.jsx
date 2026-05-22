@@ -41,6 +41,7 @@ export default function App() {
     const calendar = createWeddingIcs({
       ...wedding.calendar,
       venue: wedding.venue,
+      hall: wedding.hall,
       address: wedding.address,
     });
 

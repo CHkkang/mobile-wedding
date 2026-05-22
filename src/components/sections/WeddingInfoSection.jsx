@@ -5,7 +5,7 @@ import { getDaysUntil } from '../../utils/date';
 
 /**
  * 예식 일시와 장소 정보를 제공하는 section입니다.
- * @param {{wedding: {date: string, time: string, venue: string}, nextId?: string, onCalendarDownload: () => void}} props 예식 정보와 calendar handler입니다.
+ * @param {{wedding: {date: string, time: string, venue: string, hall: string, calendar: {startDateTime: string}}, nextId?: string, onCalendarDownload: () => void}} props 예식 정보와 calendar handler입니다.
  * @returns {JSX.Element} Wedding info UI를 반환합니다.
  */
 export function WeddingInfoSection({ wedding, nextId, onCalendarDownload }) {
@@ -34,6 +34,7 @@ export function WeddingInfoSection({ wedding, nextId, onCalendarDownload }) {
         <InfoRow label="날짜" value={wedding.date} />
         <InfoRow label="시간" value={wedding.time} />
         <InfoRow label="장소" value={wedding.venue} />
+        <InfoRow label="홀" value={wedding.hall} />
         <button
           className="pressable luxury-button mt-5 w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] hover:border-wedding-blush hover:text-wedding-ink"
           type="button"

@@ -18,7 +18,7 @@ function escapeIcsText(value) {
 
 /**
  * 예식 정보를 기반으로 iCalendar 파일 내용을 생성합니다.
- * @param {{title: string, startDateTime: string, endDateTime: string, venue: string, address: string, description: string}} event Calendar event 데이터입니다.
+ * @param {{title: string, startDateTime: string, endDateTime: string, venue: string, hall?: string, address: string, description: string}} event Calendar event 데이터입니다.
  * @returns {string} iCalendar 파일 문자열입니다.
  */
 export function createWeddingIcs(event) {
@@ -36,7 +36,7 @@ export function createWeddingIcs(event) {
     `DTSTART:${toIcsDateTime(event.startDateTime)}`,
     `DTEND:${toIcsDateTime(event.endDateTime)}`,
     `SUMMARY:${escapeIcsText(event.title)}`,
-    `LOCATION:${escapeIcsText(`${event.venue} ${event.address}`)}`,
+    `LOCATION:${escapeIcsText(`${event.venue} ${event.hall || ''} ${event.address}`.trim())}`,
     `DESCRIPTION:${escapeIcsText(event.description)}`,
     'END:VEVENT',
     'END:VCALENDAR',

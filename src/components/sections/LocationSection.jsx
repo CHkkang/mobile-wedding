@@ -10,7 +10,7 @@ const kakaoMapAppKey = import.meta.env.VITE_KAKAO_MAP_APP_KEY;
 
 /**
  * 오시는 길과 카카오맵을 제공하는 section입니다.
- * @param {{wedding: {venue: string, address: string, mapQuery: string}, nextId?: string, onCopy: (text: string, successMessage: string) => Promise<void>}} props Location action props입니다.
+ * @param {{wedding: {venue: string, hall: string, address: string, mapQuery: string}, nextId?: string, onCopy: (text: string, successMessage: string) => Promise<void>}} props Location action props입니다.
  * @returns {JSX.Element} Location UI를 반환합니다.
  */
 export function LocationSection({ wedding, nextId, onCopy }) {
@@ -20,6 +20,9 @@ export function LocationSection({ wedding, nextId, onCopy }) {
     <Section id="location" eyebrow="Location" title="오시는 길" nextId={nextId}>
       <BlurCard>
         <p className="text-center text-[16px] font-medium">{wedding.venue}</p>
+        <p className="mt-1 text-center text-[14px] font-semibold text-wedding-champagne">
+          {wedding.hall}
+        </p>
         <p className="mt-2 text-center text-[14px] text-wedding-ink/65">{wedding.address}</p>
         <KakaoMapPreview
           address={wedding.address}

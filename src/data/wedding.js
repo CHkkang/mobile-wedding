@@ -5,6 +5,7 @@ export const wedding = {
   heroDate: '2026년 12월 12일 토요일 아침 11시',
   time: '오전 11시 20분',
   venue: '여의도 더파티움',
+  hall: 'B1 그랜드컨벤션홀',
   address: '서울 영등포구 은행로 30',
   mapQuery: '여의도 더 파티움',
   images: {

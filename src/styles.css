@@ -262,6 +262,52 @@ body::before {
   animation: hero-copy-reveal 1900ms 520ms cubic-bezier(0.18, 0.84, 0.25, 1) both;
 }
 
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  animation: hero-veil-fade 2600ms cubic-bezier(0.18, 0.84, 0.25, 1) both;
+}
+
+.hero-veil-panel {
+  position: absolute;
+  top: -8%;
+  bottom: -8%;
+  width: 58%;
+  background:
+    radial-gradient(ellipse at 50% 14%, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.2) 28%, transparent 58%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.82), rgba(255, 252, 247, 0.32) 58%, transparent);
+  filter: blur(0.2px);
+  opacity: 0.95;
+}
+
+.hero-veil-left {
+  left: -7%;
+  border-radius: 0 0 56% 0;
+  transform-origin: left center;
+  animation: hero-veil-left 2600ms cubic-bezier(0.18, 0.84, 0.25, 1) both;
+}
+
+.hero-veil-right {
+  right: -7%;
+  border-radius: 0 0 0 56%;
+  transform: scaleX(-1);
+  transform-origin: right center;
+  animation: hero-veil-right 2600ms cubic-bezier(0.18, 0.84, 0.25, 1) both;
+}
+
+.hero-veil-glow {
+  position: absolute;
+  inset: -20% -10%;
+  background:
+    linear-gradient(115deg, transparent 18%, rgba(255, 255, 255, 0.58) 42%, transparent 68%),
+    linear-gradient(245deg, transparent 18%, rgba(216, 196, 166, 0.34) 48%, transparent 72%);
+  opacity: 0;
+  animation: hero-veil-glow 2100ms 420ms ease-out both;
+}
+
 .reveal-section {
   opacity: 0;
   transform: translateY(18px);
@@ -331,6 +377,61 @@ body::before {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hero-veil-left {
+  0% {
+    transform: translateX(0) skewX(-5deg);
+  }
+
+  58% {
+    transform: translateX(-74%) skewX(-10deg);
+  }
+
+  100% {
+    transform: translateX(-112%) skewX(-12deg);
+  }
+}
+
+@keyframes hero-veil-right {
+  0% {
+    transform: translateX(0) scaleX(-1) skewX(-5deg);
+  }
+
+  58% {
+    transform: translateX(74%) scaleX(-1) skewX(-10deg);
+  }
+
+  100% {
+    transform: translateX(112%) scaleX(-1) skewX(-12deg);
+  }
+}
+
+@keyframes hero-veil-glow {
+  0% {
+    opacity: 0;
+    transform: translateX(-18%) scale(1.08);
+  }
+
+  34% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(18%) scale(1);
+  }
+}
+
+@keyframes hero-veil-fade {
+  0%,
+  76% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
@@ -424,6 +525,9 @@ body::before {
   .intro-copy,
   .hero-photo,
   .hero-copy,
+  .hero-veil,
+  .hero-veil-panel,
+  .hero-veil-glow,
   .modal-panel,
   .polish-card,
   .stagger-grid > *,

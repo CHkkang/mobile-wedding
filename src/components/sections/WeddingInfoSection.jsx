@@ -13,24 +13,26 @@ export function WeddingInfoSection({ wedding, nextId, onCalendarDownload }) {
   const weddingDate = new Date(wedding.calendar.startDateTime);
 
   return (
-    <Section id="info" eyebrow="II" title="Wedding Day" nextId={nextId}>
+    <Section id="info" eyebrow="II" title="Wedding Day" nextId={nextId} compact>
       <BlurCard>
-        <WeddingCalendar date={weddingDate} />
-        <div className="mb-3 rounded-[22px] border border-wedding-champagne/30 bg-wedding-white/82 px-5 py-5 text-center shadow-[0_12px_32px_rgba(80,64,54,0.06)]">
-          <p className="ui-font text-[11px] font-semibold tracking-[0.28em] text-wedding-champagne">
+        <div className="grid grid-cols-[1.25fr_1fr] gap-3">
+          <WeddingCalendar date={weddingDate} />
+          <div className="rounded-[20px] border border-wedding-champagne/30 bg-wedding-white/82 px-3 py-4 text-center shadow-[0_12px_32px_rgba(80,64,54,0.06)]">
+            <p className="ui-font text-[10px] font-semibold tracking-[0.2em] text-wedding-champagne">
             WEDDING D-DAY
-          </p>
-          <p className="mt-3 text-[32px] font-semibold leading-none text-wedding-ink">
-            {formatDday(daysUntilWedding)}
-          </p>
-          <p className="mt-3 text-[13px] text-wedding-ink/58">
-            {formatDdayMessage(daysUntilWedding)}
-          </p>
+            </p>
+            <p className="mt-4 text-[28px] font-semibold leading-none text-wedding-ink">
+              {formatDday(daysUntilWedding)}
+            </p>
+            <p className="mt-4 text-[12px] leading-5 text-wedding-ink/58">
+              {formatDdayMessage(daysUntilWedding)}
+            </p>
+          </div>
         </div>
         <InfoRow label="날짜" value={wedding.date} />
         <InfoRow label="시간" value={wedding.time} />
         <button
-          className="pressable luxury-button mt-5 w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] hover:border-wedding-blush hover:text-wedding-ink"
+          className="pressable luxury-button mt-4 w-full rounded-full border border-wedding-champagne/55 px-5 py-3.5 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] hover:border-wedding-blush hover:text-wedding-ink"
           type="button"
           onClick={onCalendarDownload}
         >
@@ -59,16 +61,16 @@ function WeddingCalendar({ date }) {
   ];
 
   return (
-    <div className="mb-4 rounded-[24px] border border-wedding-champagne/25 bg-wedding-petal/55 px-4 py-5 text-center shadow-[inset_0_0_0_1px_rgba(255,255,255,0.48)]">
-      <p className="ui-font text-[12px] font-semibold tracking-[0.22em] text-wedding-champagne">
+    <div className="rounded-[20px] border border-wedding-champagne/25 bg-wedding-petal/55 px-3 py-4 text-center shadow-[inset_0_0_0_1px_rgba(255,255,255,0.48)]">
+      <p className="ui-font text-[11px] font-semibold tracking-[0.18em] text-wedding-champagne">
         {monthLabel}
       </p>
-      <div className="ui-font mt-4 grid grid-cols-7 gap-1 text-[11px] font-semibold text-wedding-ink/42">
+      <div className="ui-font mt-3 grid grid-cols-7 gap-0.5 text-[10px] font-semibold text-wedding-ink/42">
         {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((weekday, index) => (
           <span key={`${weekday}-${index}`}>{weekday}</span>
         ))}
       </div>
-      <div className="ui-font mt-2 grid grid-cols-7 gap-1 text-[12px] text-wedding-ink/58">
+      <div className="ui-font mt-1.5 grid grid-cols-7 gap-0.5 text-[10px] text-wedding-ink/58">
         {calendarCells.map((cell) => (
           <span
             key={cell.key}
@@ -133,5 +135,5 @@ function formatDdayMessage(daysUntilWedding) {
     return '함께해 주신 마음을 오래 간직하겠습니다.';
   }
 
-  return `두 사람의 결혼식까지 ${daysUntilWedding}일 남았습니다.`;
+  return `결혼식까지 ${daysUntilWedding}일 남았습니다.`;
 }

@@ -11,6 +11,10 @@ export default {
           white: '#FFFCF7',
           mist: '#ECEFF0',
           frost: '#E7ECEE',
+          blush: '#EBC9C3',
+          sage: '#B8C2B2',
+          champagne: '#D8C4A6',
+          petal: '#F4E5E1',
         },
       },
       fontFamily: {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BgmToggle } from './components/common/BgmToggle';
+import { IntroVideoOverlay } from './components/common/IntroVideoOverlay';
 import { Toast } from './components/common/Toast';
 import { GallerySection } from './components/sections/GallerySection';
 import { GiftSection } from './components/sections/GiftSection';
@@ -15,6 +16,7 @@ import { wedding } from './data/wedding';
  * @returns {JSX.Element} 전체 wedding invitation layout을 반환합니다.
  */
 export default function App() {
+  const [isIntroVisible, setIsIntroVisible] = useState(true);
   const [toastMessage, setToastMessage] = useState('');
 
   /**
@@ -31,7 +33,15 @@ export default function App() {
 
   return (
     <main className="min-h-screen bg-wedding-ivory text-wedding-ink">
-      <div className="mx-auto max-w-[480px] overflow-hidden bg-wedding-ivory">
+      {isIntroVisible && (
+        <IntroVideoOverlay
+          videoId={wedding.introVideo.youtubeId}
+          greeting={wedding.introVideo.greeting}
+          durationMs={wedding.introVideo.durationMs}
+          onFinish={() => setIsIntroVisible(false)}
+        />
+      )}
+      <div className="mx-auto max-w-[480px] overflow-hidden bg-wedding-ivory shadow-[0_0_70px_rgba(43,43,43,0.08)]">
         <HeroSection wedding={wedding} />
         <InvitationSection parents={wedding.parents} />
         <WeddingInfoSection wedding={wedding} />
@@ -40,7 +50,7 @@ export default function App() {
         <GiftSection accounts={wedding.accounts} onCopy={handleCopy} />
         <ThanksSection wedding={wedding} />
       </div>
-      <BgmToggle src={wedding.bgm.src} title={wedding.bgm.title} />
+      {!isIntroVisible && <BgmToggle src={wedding.bgm.src} title={wedding.bgm.title} />}
       <Toast message={toastMessage} />
     </main>
   );

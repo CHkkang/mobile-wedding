@@ -6,7 +6,7 @@
 export function ActionButton({ label, onClick }) {
   return (
     <button
-      className="rounded-full border border-wedding-accent/35 bg-wedding-white/80 px-4 py-3 text-[13px] text-wedding-ink/75 shadow-[0_8px_20px_rgba(43,43,43,0.04)]"
+      className="rounded-full border border-wedding-champagne/45 bg-wedding-white/90 px-4 py-3 text-[13px] font-medium text-wedding-ink/75 shadow-[0_10px_24px_rgba(80,64,54,0.06)] transition hover:border-wedding-blush hover:text-wedding-ink"
       onClick={onClick}
     >
       {label}

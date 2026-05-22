@@ -16,14 +16,15 @@ export function GallerySection() {
         {galleryImages.map((image, index) => (
           <button
             key={image}
-            className="aspect-[3/4] overflow-hidden rounded-2xl bg-wedding-mist"
+            className="aspect-[3/4] overflow-hidden rounded-[22px] bg-wedding-mist shadow-[0_14px_34px_rgba(80,64,54,0.12)]"
             onClick={() => setSelectedImage({ src: image, index })}
             aria-label={`웨딩 갤러리 사진 ${index + 1} 크게 보기`}
           >
             <img
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
               src={image}
               alt={`웨딩 갤러리 사진 ${index + 1}`}
+              loading="lazy"
             />
           </button>
         ))}

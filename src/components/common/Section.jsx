@@ -16,8 +16,13 @@ export function Section({ id, eyebrow, title, children }) {
       className={`snap-section reveal-section px-6 py-16 ${isVisible ? 'is-visible' : ''}`}
     >
       <div className="mb-9 text-center">
-        <p className="text-[11px] uppercase tracking-[0.32em] text-wedding-accent">{eyebrow}</p>
-        <h2 className="mt-3 font-display text-[32px] font-normal tracking-[0.04em]">{title}</h2>
+        <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-wedding-champagne">
+          {eyebrow}
+        </p>
+        <h2 className="mt-3 font-display text-[31px] font-medium tracking-[0.02em] text-wedding-ink">
+          {title}
+        </h2>
+        <div className="section-rule mx-auto mt-5 h-px w-24" />
       </div>
       {children}
       <ScrollCue />

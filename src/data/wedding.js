@@ -10,6 +10,11 @@ export const wedding = {
     title: 'Wedding BGM',
     src: '/audio/wedding-bgm.mp3',
   },
+  introVideo: {
+    youtubeId: 'TgzcM5Cvo4I',
+    greeting: '안녕~~~~~~',
+    durationMs: 5200,
+  },
   parents: {
     groom: '강기홍 · 김은이의 장남 강찬혁',
     bride: '김영수 · 윤희자의 장녀 김민지',

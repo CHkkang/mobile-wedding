@@ -11,6 +11,12 @@ export function WeddingInfoSection({ wedding }) {
   return (
     <Section id="info" eyebrow="Wedding Day" title="예식정보">
       <BlurCard>
+        <div className="mb-3 rounded-2xl bg-wedding-petal/55 px-4 py-5 text-center">
+          <p className="text-[12px] font-medium tracking-[0.2em] text-wedding-champagne">
+            DECEMBER
+          </p>
+          <p className="mt-2 text-[34px] font-semibold leading-none text-wedding-ink">12</p>
+        </div>
         <InfoRow label="날짜" value={wedding.date} />
         <InfoRow label="시간" value={wedding.time} />
         <InfoRow label="장소" value={wedding.venue} />

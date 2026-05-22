@@ -32,8 +32,10 @@ export function GiftSection({ accounts, onCopy }) {
         {accounts.map((account) => (
           <BlurCard key={account.label}>
             <div>
-              <p className="text-[13px] text-wedding-accent">{account.label}</p>
-              <p className="mt-2 text-[15px] font-medium">
+              <p className="inline-flex rounded-full bg-wedding-petal/75 px-3 py-1 text-[12px] font-medium text-wedding-ink/65">
+                {account.label}
+              </p>
+              <p className="mt-3 text-[15px] font-semibold">
                 {account.bank} {account.number}
               </p>
               <p className="mt-1 text-[13px] text-wedding-ink/60">예금주 {account.holder}</p>
@@ -76,7 +78,7 @@ function formatAccount(account) {
 function GiftActionButton({ label, onClick }) {
   return (
     <button
-      className="rounded-full border border-wedding-accent/35 bg-wedding-white/80 px-2 py-3 text-[12px] text-wedding-ink/75 shadow-[0_8px_20px_rgba(43,43,43,0.04)]"
+      className="rounded-full border border-wedding-champagne/40 bg-wedding-white/90 px-2 py-3 text-[12px] font-medium text-wedding-ink/72 shadow-[0_8px_20px_rgba(80,64,54,0.05)] transition hover:border-wedding-blush hover:text-wedding-ink"
       onClick={onClick}
     >
       {label}

@@ -43,7 +43,7 @@ export function LocationSection({ wedding, onCopy }) {
           />
         </div>
         <button
-          className="mt-3 w-full rounded-full border border-wedding-champagne/55 bg-wedding-white/88 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] transition hover:border-wedding-blush hover:bg-white hover:text-wedding-ink"
+          className="luxury-button mt-3 w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] transition hover:border-wedding-blush hover:text-wedding-ink"
           type="button"
           onClick={() => setIsTransitModalOpen(true)}
         >

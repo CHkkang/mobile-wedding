@@ -15,6 +15,7 @@ export function HeroSection({ wedding }) {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/28 via-black/10 to-black/62" />
       <div className="absolute inset-0 bg-wedding-petal/10 mix-blend-screen" />
+      <div className="hero-frame" />
       <div className="hero-copy relative z-10 flex min-h-screen flex-col items-center justify-center px-7 text-center">
         <p className="text-[12px] font-semibold tracking-[0.34em] text-white/78">
           THE WEDDING OF

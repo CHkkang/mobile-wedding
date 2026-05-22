@@ -22,7 +22,11 @@ export function Section({ id, eyebrow, title, children }) {
         <h2 className="mt-3 font-display text-[31px] font-medium tracking-[0.02em] text-wedding-ink">
           {title}
         </h2>
-        <div className="section-rule mx-auto mt-5 h-px w-24" />
+        <div className="mt-5">
+          <span className="section-ornament" aria-hidden="true">
+            <span />
+          </span>
+        </div>
       </div>
       {children}
       <ScrollCue />

@@ -7,7 +7,7 @@ import { ScrollCue } from '../common/ScrollCue';
  */
 export function HeroSection({ wedding, nextId }) {
   return (
-    <section className="snap-section relative min-h-[100svh] overflow-hidden bg-wedding-ink text-white">
+    <section id="top" className="snap-section relative min-h-[100svh] overflow-hidden bg-wedding-ink text-white">
       <img
         className="hero-photo absolute inset-0 h-full w-full object-cover"
         src={wedding.images.hero}

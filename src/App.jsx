@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BgmToggle } from './components/common/BgmToggle';
 import { IntroVideoOverlay } from './components/common/IntroVideoOverlay';
+import { SectionNavigator } from './components/common/SectionNavigator';
 import { Toast } from './components/common/Toast';
 import { ContactSection } from './components/sections/ContactSection';
 import { GallerySection } from './components/sections/GallerySection';
@@ -96,6 +97,7 @@ export default function App() {
         <ThanksSection wedding={wedding} onShare={handleShare} />
       </div>
       {!isIntroVisible && <BgmToggle src={wedding.bgm.src} title={wedding.bgm.title} />}
+      {!isIntroVisible && <SectionNavigator />}
       <Toast message={toastMessage} />
     </main>
   );

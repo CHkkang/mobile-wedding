@@ -5,8 +5,19 @@
 @tailwind utilities;
 
 :root {
-  color: #2b2b2b;
-  background: #f8f3ec;
+  --color-wedding-ivory: 247 244 239;
+  --color-wedding-ink: 43 43 43;
+  --color-wedding-accent: 175 164 155;
+  --color-wedding-white: 255 252 247;
+  --color-wedding-mist: 236 239 240;
+  --color-wedding-frost: 231 236 238;
+  --color-wedding-blush: 235 201 195;
+  --color-wedding-sage: 184 194 178;
+  --color-wedding-champagne: 216 196 166;
+  --color-wedding-petal: 244 229 225;
+
+  color: rgb(var(--color-wedding-ink));
+  background: rgb(var(--color-wedding-ivory));
   font-family: 'Noto Sans KR', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,10 +37,10 @@ body {
   min-width: 320px;
   margin: 0;
   background:
-    linear-gradient(180deg, rgba(255, 252, 247, 0.96) 0 9rem, rgba(248, 238, 232, 0.72) 24rem, rgba(247, 244, 239, 0) 42rem),
-    linear-gradient(125deg, rgba(235, 201, 195, 0.22), transparent 34rem),
-    linear-gradient(245deg, rgba(184, 194, 178, 0.18), transparent 30rem),
-    #f8f3ec;
+    linear-gradient(180deg, rgb(var(--color-wedding-white) / 0.96) 0 9rem, rgb(var(--color-wedding-petal) / 0.42) 24rem, rgb(var(--color-wedding-ivory) / 0) 42rem),
+    linear-gradient(125deg, rgb(var(--color-wedding-blush) / 0.22), transparent 34rem),
+    linear-gradient(245deg, rgb(var(--color-wedding-sage) / 0.18), transparent 30rem),
+    rgb(var(--color-wedding-ivory));
 }
 
 button {
@@ -41,8 +52,8 @@ img {
 }
 
 ::selection {
-  color: #2b2b2b;
-  background: rgba(184, 168, 154, 0.28);
+  color: rgb(var(--color-wedding-ink));
+  background: rgb(var(--color-wedding-accent) / 0.28);
 }
 
 body::before {
@@ -52,8 +63,8 @@ body::before {
   pointer-events: none;
   content: '';
   background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.92) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(216, 196, 166, 0.22) 0 1px, transparent 1.5px);
+    radial-gradient(circle, rgb(var(--color-wedding-white) / 0.92) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgb(var(--color-wedding-champagne) / 0.22) 0 1px, transparent 1.5px);
   background-position:
     18px 24px,
     84px 96px;
@@ -76,22 +87,22 @@ body::before {
 
 .map-preview {
   background:
-    linear-gradient(32deg, transparent 0 38%, rgba(255, 255, 255, 0.72) 38% 43%, transparent 43%),
-    linear-gradient(145deg, transparent 0 47%, rgba(255, 255, 255, 0.64) 47% 52%, transparent 52%),
-    linear-gradient(92deg, transparent 0 56%, rgba(175, 164, 155, 0.18) 56% 59%, transparent 59%),
-    radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.88), transparent 16%),
-    #eceff0;
+    linear-gradient(32deg, transparent 0 38%, rgb(var(--color-wedding-white) / 0.72) 38% 43%, transparent 43%),
+    linear-gradient(145deg, transparent 0 47%, rgb(var(--color-wedding-white) / 0.64) 47% 52%, transparent 52%),
+    linear-gradient(92deg, transparent 0 56%, rgb(var(--color-wedding-accent) / 0.18) 56% 59%, transparent 59%),
+    radial-gradient(circle at 24% 24%, rgb(var(--color-wedding-white) / 0.88), transparent 16%),
+    rgb(var(--color-wedding-mist));
 }
 
 .wedding-card {
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.82), transparent 32%),
-    linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(255, 252, 247, 0.78)),
-    linear-gradient(135deg, rgba(244, 229, 225, 0.56), rgba(236, 239, 240, 0.46));
+    linear-gradient(145deg, rgb(var(--color-wedding-white) / 0.82), transparent 32%),
+    linear-gradient(180deg, rgb(var(--color-wedding-white) / 0.96), rgb(var(--color-wedding-white) / 0.78)),
+    linear-gradient(135deg, rgb(var(--color-wedding-petal) / 0.56), rgb(var(--color-wedding-mist) / 0.46));
 }
 
 .section-rule {
-  background: linear-gradient(90deg, transparent, rgba(216, 196, 166, 0.72), transparent);
+  background: linear-gradient(90deg, transparent, rgb(var(--color-wedding-champagne) / 0.72), transparent);
 }
 
 .section-ornament {
@@ -110,7 +121,7 @@ body::before {
   width: 34px;
   height: 1px;
   content: '';
-  background: linear-gradient(90deg, transparent, rgba(216, 196, 166, 0.92));
+  background: linear-gradient(90deg, transparent, rgb(var(--color-wedding-champagne) / 0.92));
 }
 
 .section-ornament::before {
@@ -127,8 +138,8 @@ body::before {
 .section-ornament span {
   width: 8px;
   height: 8px;
-  border: 1px solid rgba(216, 196, 166, 0.92);
-  background: rgba(255, 252, 247, 0.82);
+  border: 1px solid rgb(var(--color-wedding-champagne) / 0.92);
+  background: rgb(var(--color-wedding-white) / 0.82);
   transform: rotate(45deg);
 }
 
@@ -137,7 +148,7 @@ body::before {
   inset: 18px;
   z-index: 1;
   pointer-events: none;
-  border: 1px solid rgba(255, 255, 255, 0.42);
+  border: 1px solid rgb(var(--color-wedding-white) / 0.42);
 }
 
 .hero-frame::before,
@@ -146,7 +157,7 @@ body::before {
   width: 54px;
   height: 54px;
   content: '';
-  border-color: rgba(216, 196, 166, 0.86);
+  border-color: rgb(var(--color-wedding-champagne) / 0.86);
 }
 
 .hero-frame::before {
@@ -165,8 +176,8 @@ body::before {
 
 .luxury-button {
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 252, 247, 0.78)),
-    linear-gradient(90deg, rgba(216, 196, 166, 0.22), rgba(235, 201, 195, 0.2));
+    linear-gradient(145deg, rgb(var(--color-wedding-white) / 0.92), rgb(var(--color-wedding-white) / 0.78)),
+    linear-gradient(90deg, rgb(var(--color-wedding-champagne) / 0.22), rgb(var(--color-wedding-blush) / 0.2));
 }
 
 .pressable {
@@ -181,7 +192,7 @@ body::before {
 
 .pressable:active {
   transform: translateY(1px);
-  box-shadow: 0 6px 16px rgba(80, 64, 54, 0.08);
+  box-shadow: 0 6px 16px rgb(var(--color-wedding-ink) / 0.08);
 }
 
 .scroll-cue-button {
@@ -273,8 +284,8 @@ body::before {
   bottom: -8%;
   width: 58%;
   background:
-    radial-gradient(ellipse at 50% 14%, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.2) 28%, transparent 58%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.82), rgba(255, 252, 247, 0.32) 58%, transparent);
+    radial-gradient(ellipse at 50% 14%, rgb(var(--color-wedding-white) / 0.86), rgb(var(--color-wedding-white) / 0.2) 28%, transparent 58%),
+    linear-gradient(90deg, rgb(var(--color-wedding-white) / 0.82), rgb(var(--color-wedding-white) / 0.32) 58%, transparent);
   filter: blur(0.2px);
   opacity: 0.95;
 }
@@ -298,8 +309,8 @@ body::before {
   position: absolute;
   inset: -20% -10%;
   background:
-    linear-gradient(115deg, transparent 18%, rgba(255, 255, 255, 0.58) 42%, transparent 68%),
-    linear-gradient(245deg, transparent 18%, rgba(216, 196, 166, 0.34) 48%, transparent 72%);
+    linear-gradient(115deg, transparent 18%, rgb(var(--color-wedding-white) / 0.58) 42%, transparent 68%),
+    linear-gradient(245deg, transparent 18%, rgb(var(--color-wedding-champagne) / 0.34) 48%, transparent 72%);
   opacity: 0;
   animation: hero-veil-glow 2100ms 420ms ease-out both;
 }

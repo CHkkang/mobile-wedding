@@ -1,3 +1,11 @@
+const withOpacity = (variableName) => ({ opacityValue }) => {
+  if (opacityValue === undefined) {
+    return `rgb(var(${variableName}))`;
+  }
+
+  return `rgb(var(${variableName}) / ${opacityValue})`;
+};
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
@@ -5,16 +13,16 @@ export default {
     extend: {
       colors: {
         wedding: {
-          ivory: '#F7F4EF',
-          ink: '#2B2B2B',
-          accent: '#AFA49B',
-          white: '#FFFCF7',
-          mist: '#ECEFF0',
-          frost: '#E7ECEE',
-          blush: '#EBC9C3',
-          sage: '#B8C2B2',
-          champagne: '#D8C4A6',
-          petal: '#F4E5E1',
+          ivory: withOpacity('--color-wedding-ivory'),
+          ink: withOpacity('--color-wedding-ink'),
+          accent: withOpacity('--color-wedding-accent'),
+          white: withOpacity('--color-wedding-white'),
+          mist: withOpacity('--color-wedding-mist'),
+          frost: withOpacity('--color-wedding-frost'),
+          blush: withOpacity('--color-wedding-blush'),
+          sage: withOpacity('--color-wedding-sage'),
+          champagne: withOpacity('--color-wedding-champagne'),
+          petal: withOpacity('--color-wedding-petal'),
         },
       },
       fontFamily: {

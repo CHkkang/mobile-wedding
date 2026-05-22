@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom';
 export function ModalShell({ eyebrow, title, ariaLabel, children, onClose }) {
   return createPortal(
     <div
-      className="fixed inset-0 z-[110] flex items-end justify-center bg-[#2b2724]/45 px-4 pb-4 pt-10 sm:items-center sm:py-8"
+      className="fixed inset-0 z-[110] flex items-end justify-center bg-wedding-ink/45 px-4 pb-4 pt-10 sm:items-center sm:py-8"
       role="dialog"
       aria-modal="true"
       aria-label={ariaLabel}

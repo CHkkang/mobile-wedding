@@ -42,13 +42,13 @@ export const wedding = {
       label: '신랑 아버지',
       side: 'groom',
       name: '강기홍',
-      phone: '010-0000-0000',
+      phone: '010-5231-1127',
     },
     {
       label: '신랑 어머니',
       side: 'groom',
       name: '김은이',
-      phone: '010-0000-0000',
+      phone: '010-2452-6656',
     },
     {
       label: '신부 아버지',
@@ -83,7 +83,7 @@ export const wedding = {
       bank: '국민은행',
       number: '000000-00-000000',
       holder: '강찬혁',
-      kakaoPayUrl: '',
+      kakaoPayUrl: 'https://qr.kakaopay.com/FbBWkGtyh',
       tossUrl: '',
     },
     {

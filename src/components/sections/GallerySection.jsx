@@ -102,7 +102,7 @@ function GalleryModal({ images, initialIndex, onClose }) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] grid h-dvh w-dvw place-items-center bg-[#2b2724]/70 px-4 py-8"
+      className="fixed inset-0 z-[100] grid h-dvh w-dvw place-items-center bg-wedding-ink/70 px-4 py-8"
       onClick={onClose}
       role="dialog"
       aria-modal="true"

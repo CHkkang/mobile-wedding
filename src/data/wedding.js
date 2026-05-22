@@ -7,6 +7,35 @@ export const wedding = {
   venue: '여의도 더파티움',
   address: '서울 영등포구 은행로 30',
   mapQuery: '여의도 더 파티움',
+  images: {
+    hero:
+      'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1100&q=88',
+    gallery: [
+      'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85',
+      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85',
+      'https://images.unsplash.com/photo-1509927083803-4bd519298ac4?auto=format&fit=crop&w=900&q=85',
+      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85',
+    ],
+  },
+  calendar: {
+    title: '강찬혁 & 김민지 결혼식',
+    startDateTime: '2026-12-12T11:00:00+09:00',
+    endDateTime: '2026-12-12T13:00:00+09:00',
+    description: '강찬혁 & 김민지 결혼식에 초대합니다.',
+    filename: 'chanhyuk-minji-wedding.ics',
+  },
+  contacts: [
+    {
+      label: '신랑',
+      name: '강찬혁',
+      phone: '010-3053-5801',
+    },
+    {
+      label: '신부',
+      name: '김민지',
+      phone: '010-3177-5077',
+    },
+  ],
   bgm: {
     title: 'Wedding BGM',
     src: '/audio/wedding-bgm.mp3',
@@ -79,10 +108,7 @@ export const wedding = {
 };
 
 export const galleryImages = [
-  'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1509927083803-4bd519298ac4?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85',
+  ...wedding.images.gallery,
 ];
 
 export const transitGuides = [

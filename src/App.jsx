@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BgmToggle } from './components/common/BgmToggle';
 import { IntroVideoOverlay } from './components/common/IntroVideoOverlay';
 import { Toast } from './components/common/Toast';
+import { ContactSection } from './components/sections/ContactSection';
 import { GallerySection } from './components/sections/GallerySection';
 import { GiftSection } from './components/sections/GiftSection';
 import { HeroSection } from './components/sections/HeroSection';
@@ -10,6 +11,7 @@ import { LocationSection } from './components/sections/LocationSection';
 import { ThanksSection } from './components/sections/ThanksSection';
 import { WeddingInfoSection } from './components/sections/WeddingInfoSection';
 import { wedding } from './data/wedding';
+import { createWeddingIcs, downloadTextFile } from './utils/calendar';
 
 /**
  * 모바일 청첩장의 최상위 page component입니다.
@@ -31,6 +33,43 @@ export default function App() {
     window.setTimeout(() => setToastMessage(''), 1800);
   };
 
+  /**
+   * 예식 정보를 iCalendar 파일로 내려받습니다.
+   * @returns {void}
+   */
+  const handleCalendarDownload = () => {
+    const calendar = createWeddingIcs({
+      ...wedding.calendar,
+      venue: wedding.venue,
+      address: wedding.address,
+    });
+
+    downloadTextFile(calendar, wedding.calendar.filename, 'text/calendar;charset=utf-8');
+  };
+
+  /**
+   * Web Share API를 사용해 청첩장 링크를 공유하고, 미지원 시 URL을 복사합니다.
+   * @returns {Promise<void>} 공유 또는 복사 작업 완료 promise입니다.
+   */
+  const handleShare = async () => {
+    const shareData = {
+      title: wedding.calendar.title,
+      text: `${wedding.groom} & ${wedding.bride} 결혼식에 초대합니다.`,
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        return;
+      }
+    } catch {
+      return;
+    }
+
+    await handleCopy(window.location.href, '청첩장 링크가 복사되었습니다.');
+  };
+
   return (
     <main className="min-h-screen bg-wedding-ivory text-wedding-ink">
       {isIntroVisible && (
@@ -44,11 +83,12 @@ export default function App() {
       <div className="mx-auto max-w-[480px] overflow-hidden bg-wedding-ivory shadow-[0_0_70px_rgba(43,43,43,0.08)]">
         <HeroSection wedding={wedding} />
         <InvitationSection parents={wedding.parents} />
-        <WeddingInfoSection wedding={wedding} />
+        <WeddingInfoSection wedding={wedding} onCalendarDownload={handleCalendarDownload} />
         <LocationSection wedding={wedding} onCopy={handleCopy} />
         <GallerySection />
         <GiftSection accounts={wedding.accounts} onCopy={handleCopy} />
-        <ThanksSection wedding={wedding} />
+        <ContactSection contacts={wedding.contacts} />
+        <ThanksSection wedding={wedding} onShare={handleShare} />
       </div>
       {!isIntroVisible && <BgmToggle src={wedding.bgm.src} title={wedding.bgm.title} />}
       <Toast message={toastMessage} />

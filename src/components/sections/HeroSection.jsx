@@ -2,7 +2,7 @@ import { ScrollCue } from '../common/ScrollCue';
 
 /**
  * 큰 세로사진과 핵심 wedding identity를 보여주는 hero section입니다.
- * @param {{wedding: {groom: string, bride: string, heroDate: string, venue: string}}} props Wedding 기본 정보입니다.
+ * @param {{wedding: {groom: string, bride: string, heroDate: string, venue: string, images: {hero: string}}}} props Wedding 기본 정보입니다.
  * @returns {JSX.Element} Hero UI를 반환합니다.
  */
 export function HeroSection({ wedding }) {
@@ -10,7 +10,7 @@ export function HeroSection({ wedding }) {
     <section className="snap-section relative min-h-screen overflow-hidden bg-wedding-ink text-white">
       <img
         className="hero-photo absolute inset-0 h-full w-full object-cover"
-        src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1100&q=88"
+        src={wedding.images.hero}
         alt="겨울 감성 웨딩 세로 사진"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/28 via-black/10 to-black/62" />

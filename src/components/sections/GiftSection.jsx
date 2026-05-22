@@ -30,15 +30,20 @@ export function GiftSection({ accounts, nextId, onCopy }) {
    * @param {string} paymentLabel 송금 서비스 이름입니다.
    * @returns {void}
    */
-  const handlePayment = (account, paymentUrl, paymentLabel) => {
+  const handlePayment = async (account, paymentUrl, paymentLabel) => {
     if (paymentUrl) {
-      window.open(paymentUrl, '_blank', 'noopener,noreferrer');
+      const openedWindow = window.open(paymentUrl, '_blank', 'noopener,noreferrer');
+
+      if (!openedWindow) {
+        window.location.href = paymentUrl;
+      }
+
       return;
     }
 
-    onCopy(
+    await onCopy(
       formatAccount(account),
-      `${paymentLabel} 링크 준비 전이라 ${account.label} 계좌를 복사했습니다.`,
+      `${paymentLabel} 링크가 없어 ${account.label} 계좌를 복사했습니다.`,
     );
   };
 
@@ -153,6 +158,7 @@ function GiftActionButton({ label, onClick }) {
   return (
     <button
       className="pressable rounded-full border border-wedding-champagne/40 bg-wedding-white/90 px-2 py-3 text-[12px] font-medium text-wedding-ink/72 shadow-[0_8px_20px_rgba(80,64,54,0.05)] hover:border-wedding-blush hover:text-wedding-ink"
+      type="button"
       onClick={onClick}
     >
       {label}

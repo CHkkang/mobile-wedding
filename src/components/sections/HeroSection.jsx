@@ -7,7 +7,7 @@ import { ScrollCue } from '../common/ScrollCue';
  */
 export function HeroSection({ wedding, nextId }) {
   return (
-    <section className="snap-section relative min-h-screen overflow-hidden bg-wedding-ink text-white">
+    <section className="snap-section relative min-h-[100svh] overflow-hidden bg-wedding-ink text-white">
       <img
         className="hero-photo absolute inset-0 h-full w-full object-cover"
         src={wedding.images.hero}
@@ -21,7 +21,7 @@ export function HeroSection({ wedding, nextId }) {
         <span className="hero-veil-glow" />
       </div>
       <div className="hero-frame" />
-      <div className="hero-copy relative z-10 flex min-h-screen flex-col items-center justify-center px-7 text-center">
+      <div className="hero-copy relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-7 text-center">
         <p className="text-[12px] font-semibold tracking-[0.34em] text-white/78">
           THE WEDDING OF
         </p>

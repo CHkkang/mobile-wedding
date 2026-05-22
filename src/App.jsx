@@ -28,7 +28,7 @@ export default function App() {
    * @returns {Promise<void>} Clipboard 작업 완료 promise입니다.
    */
   const handleCopy = async (text, successMessage) => {
-    await navigator.clipboard.writeText(text);
+    await copyToClipboard(text);
     setToastMessage(successMessage);
     window.setTimeout(() => setToastMessage(''), 1800);
   };
@@ -72,7 +72,7 @@ export default function App() {
   };
 
   return (
-    <main className="min-h-screen bg-wedding-ivory text-wedding-ink">
+    <main className="min-h-[100svh] bg-wedding-ivory text-wedding-ink">
       {isIntroVisible && (
         <IntroVideoOverlay
           videoId={wedding.introVideo.youtubeId}
@@ -99,4 +99,31 @@ export default function App() {
       <Toast message={toastMessage} />
     </main>
   );
+}
+
+/**
+ * Clipboard API가 제한되는 모바일 환경을 위해 fallback까지 포함해 텍스트를 복사합니다.
+ * @param {string} text 복사할 텍스트입니다.
+ * @returns {Promise<void>} 복사 작업 완료 promise입니다.
+ */
+async function copyToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch {
+      // fallback으로 진행합니다.
+    }
+  }
+
+  const textarea = document.createElement('textarea');
+
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.top = '-9999px';
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
 }

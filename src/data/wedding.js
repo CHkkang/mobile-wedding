@@ -28,13 +28,39 @@ export const wedding = {
   contacts: [
     {
       label: '신랑',
+      side: 'groom',
       name: '강찬혁',
       phone: '010-3053-5801',
     },
     {
       label: '신부',
+      side: 'bride',
       name: '김민지',
       phone: '010-3177-5077',
+    },
+    {
+      label: '신랑 아버지',
+      side: 'groom',
+      name: '강기홍',
+      phone: '010-0000-0000',
+    },
+    {
+      label: '신랑 어머니',
+      side: 'groom',
+      name: '김은이',
+      phone: '010-0000-0000',
+    },
+    {
+      label: '신부 아버지',
+      side: 'bride',
+      name: '김영수',
+      phone: '010-0000-0000',
+    },
+    {
+      label: '신부 어머니',
+      side: 'bride',
+      name: '윤희자',
+      phone: '010-0000-0000',
     },
   ],
   bgm: {
@@ -47,8 +73,8 @@ export const wedding = {
     durationMs: 5200,
   },
   parents: {
-    groom: '강기홍 · 김은이의 차남 강찬혁',
-    bride: '김영수 · 윤희자의 장녀 김민지',
+    groom: '강기홍 · 김은이의 차남 찬혁',
+    bride: '김영수 · 윤희자의 장녀 민지',
   },
   accounts: [
     {

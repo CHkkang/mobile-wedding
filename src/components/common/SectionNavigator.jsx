@@ -59,7 +59,7 @@ export function SectionNavigator() {
 
   return (
     <nav
-      className="section-navigator fixed top-1/2 z-50 -translate-y-1/2 rounded-full border border-wedding-champagne/30 bg-wedding-white/70 px-1.5 py-2.5 shadow-[0_10px_24px_rgba(43,43,43,0.08)]"
+      className="section-navigator fixed top-1/2 z-50 -translate-y-1/2 rounded-full border border-wedding-champagne/20 bg-wedding-white/45 px-1 py-2 shadow-[0_8px_18px_rgba(43,43,43,0.05)] backdrop-blur-md"
       aria-label="섹션 이동"
     >
       <div className="flex flex-col items-center gap-1.5">
@@ -69,10 +69,10 @@ export function SectionNavigator() {
           return (
             <button
               key={section.id}
-              className={`pressable h-2 rounded-full border border-wedding-champagne/40 transition-all ${
+              className={`pressable h-1.5 rounded-full transition-all ${
                 isActive
-                  ? 'w-5 bg-wedding-champagne'
-                  : 'w-2 bg-wedding-white/78 hover:bg-wedding-petal'
+                  ? 'w-4 bg-wedding-champagne/90 shadow-[0_0_0_3px_rgba(216,196,166,0.13)]'
+                  : 'w-1.5 bg-wedding-ink/18 hover:bg-wedding-champagne/50'
               }`}
               type="button"
               aria-label={`${section.label} 섹션으로 이동`}

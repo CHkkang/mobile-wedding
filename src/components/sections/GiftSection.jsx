@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { BlurCard } from '../common/BlurCard';
 import { ModalShell } from '../common/ModalShell';
 import { Section } from '../common/Section';
 
@@ -48,33 +47,26 @@ export function GiftSection({ accounts, nextId, onCopy }) {
   };
 
   return (
-    <Section id="gift" eyebrow="V" title="With Heart" nextId={nextId}>
-      <BlurCard>
-        <div className="py-3 text-center">
-          <p className="text-[15px] leading-8 text-wedding-ink/72">
-            멀리서도 축하의 마음을
+    <Section id="gift" eyebrow="V" title="With Heart" nextId={nextId} compact>
+      <div className="polish-card wedding-card rounded-[26px] border border-white/80 p-4 shadow-[0_16px_42px_rgba(80,64,54,0.09),inset_0_0_0_1px_rgba(216,196,166,0.16)]">
+        <div className="text-center">
+          <p className="text-[14px] leading-7 text-wedding-ink/70">
+            멀리서도 전해주시는 축하의 마음을
             <br />
-            전하고 싶으신 분들을 위해 안내드립니다.
+            깊이 감사히 간직하겠습니다.
           </p>
-          <p className="mt-5 text-[15px] leading-8 text-wedding-ink/72">
-            소중한 축하를 보내주셔서
-            <br />
-            마음 깊이 감사드립니다.
-          </p>
-          <div className="mt-7 space-y-3">
-            {groupedAccounts.map((group) => (
-              <button
+          <div className="mt-5 grid grid-cols-2 gap-3">
+            {groupedAccounts.map((group, index) => (
+              <GiftChoiceCard
                 key={group.title}
-                className="pressable luxury-button w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] hover:border-wedding-blush hover:text-wedding-ink"
-                type="button"
-                onClick={() => setSelectedGroup(group)}
-              >
-                {group.buttonLabel}
-              </button>
+                group={group}
+                index={index}
+                onSelect={() => setSelectedGroup(group)}
+              />
             ))}
           </div>
         </div>
-      </BlurCard>
+      </div>
       {selectedGroup && (
         <GiftAccountModal
           group={selectedGroup}
@@ -84,6 +76,39 @@ export function GiftSection({ accounts, nextId, onCopy }) {
         />
       )}
     </Section>
+  );
+}
+
+/**
+ * 축하 마음을 전할 계좌 그룹을 선택하는 card button입니다.
+ * @param {{group: {title: string, buttonLabel: string, accounts: Array<unknown>}, index: number, onSelect: () => void}} props 계좌 그룹과 선택 handler입니다.
+ * @returns {JSX.Element} Gift choice card UI를 반환합니다.
+ */
+function GiftChoiceCard({ group, index, onSelect }) {
+  const caption = index === 0 ? '신랑 가족에게' : '신부 가족에게';
+  const symbol = index === 0 ? '♡' : '✦';
+
+  return (
+    <button
+      className="pressable group relative overflow-hidden rounded-[22px] border border-wedding-champagne/32 bg-wedding-white/72 px-3 pb-4 pt-5 text-center shadow-[0_12px_30px_rgba(80,64,54,0.07)] transition hover:border-wedding-blush"
+      type="button"
+      onClick={onSelect}
+      aria-label={`${group.title} 계좌번호 보기`}
+    >
+      <span className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-wedding-petal/60 transition group-hover:scale-110" />
+      <span className="relative mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-wedding-champagne/35 bg-wedding-white/86 text-[18px] text-wedding-champagne shadow-[0_8px_18px_rgba(80,64,54,0.06)]">
+        {symbol}
+      </span>
+      <span className="ui-font relative mt-3 block text-[11px] font-semibold tracking-[0.16em] text-wedding-ink/42">
+        {caption}
+      </span>
+      <span className="relative mt-1.5 block text-[16px] font-semibold text-wedding-ink">
+        {group.title}
+      </span>
+      <span className="ui-font relative mt-3 inline-flex rounded-full border border-wedding-champagne/35 bg-wedding-white/80 px-3 py-1.5 text-[11px] font-semibold text-wedding-ink/62">
+        계좌 보기
+      </span>
+    </button>
   );
 }
 

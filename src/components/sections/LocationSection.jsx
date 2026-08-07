@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { transitGuides } from '../../data/wedding';
-import { ActionButton } from '../common/ActionButton';
-import { BlurCard } from '../common/BlurCard';
 import { ModalShell } from '../common/ModalShell';
 import { Section } from '../common/Section';
 import { KakaoMapPreview } from '../map/KakaoMapPreview';
@@ -17,42 +15,49 @@ export function LocationSection({ wedding, nextId, onCopy }) {
   const [isTransitModalOpen, setIsTransitModalOpen] = useState(false);
 
   return (
-    <Section id="location" eyebrow="III" title="Location" nextId={nextId}>
-      <BlurCard>
-        <p className="text-center text-[16px] font-medium">{wedding.venue}</p>
-        <p className="mt-1 text-center text-[14px] font-semibold text-wedding-champagne">
+    <Section id="location" eyebrow="III" title="Location" nextId={nextId} compact>
+      <div className="polish-card wedding-card rounded-[24px] border border-white/80 p-4 shadow-[0_16px_42px_rgba(80,64,54,0.09),inset_0_0_0_1px_rgba(216,196,166,0.16)]">
+        <p className="text-center text-[15px] font-medium">{wedding.venue}</p>
+        <p className="mt-0.5 text-center text-[13px] font-semibold text-wedding-champagne">
           {wedding.hall}
         </p>
-        <p className="mt-2 text-center text-[14px] text-wedding-ink/65">{wedding.address}</p>
+        <p className="mt-1.5 text-center text-[12px] leading-5 text-wedding-ink/62">{wedding.address}</p>
         <KakaoMapPreview
           address={wedding.address}
           appKey={kakaoMapAppKey}
+          compact
           mapQuery={wedding.mapQuery}
           venue={wedding.venue}
         />
-        <div className="mt-5 grid grid-cols-2 gap-3">
-          <ActionButton
-            label="카카오맵"
+        <div className="mt-4 grid grid-cols-3 gap-2">
+          <button
+            className="pressable luxury-button rounded-full border border-wedding-champagne/55 px-3 py-2.5 text-[12px] font-semibold text-wedding-ink/75 shadow-[0_8px_18px_rgba(80,64,54,0.07)] hover:border-wedding-blush hover:text-wedding-ink"
+            type="button"
             onClick={() =>
               window.open(
                 `https://map.kakao.com/link/search/${encodeURIComponent(wedding.mapQuery)}`,
                 '_blank',
               )
             }
-          />
-          <ActionButton
-            label="주소 복사"
+          >
+            카카오맵
+          </button>
+          <button
+            className="pressable luxury-button rounded-full border border-wedding-champagne/55 px-3 py-2.5 text-[12px] font-semibold text-wedding-ink/75 shadow-[0_8px_18px_rgba(80,64,54,0.07)] hover:border-wedding-blush hover:text-wedding-ink"
+            type="button"
             onClick={() => onCopy(wedding.address, '주소가 복사되었습니다.')}
-          />
+          >
+            주소 복사
+          </button>
+          <button
+            className="pressable luxury-button rounded-full border border-wedding-champagne/55 px-3 py-2.5 text-[12px] font-semibold text-wedding-ink/75 shadow-[0_8px_18px_rgba(80,64,54,0.07)] hover:border-wedding-blush hover:text-wedding-ink"
+            type="button"
+            onClick={() => setIsTransitModalOpen(true)}
+          >
+            교통 안내
+          </button>
         </div>
-        <button
-          className="pressable luxury-button mt-3 w-full rounded-full border border-wedding-champagne/55 px-5 py-4 text-[14px] font-semibold text-wedding-ink/78 shadow-[0_12px_28px_rgba(80,64,54,0.08)] hover:border-wedding-blush hover:text-wedding-ink"
-          type="button"
-          onClick={() => setIsTransitModalOpen(true)}
-        >
-          교통 안내 보기
-        </button>
-      </BlurCard>
+      </div>
       {isTransitModalOpen && (
         <TransitGuideModal guides={transitGuides} onClose={() => setIsTransitModalOpen(false)} />
       )}

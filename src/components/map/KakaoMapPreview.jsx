@@ -3,13 +3,14 @@ import { loadKakaoMapSdk } from '../../utils/kakaoMap';
 
 /**
  * Kakao map을 청첩장 안에 렌더링하고 key가 없으면 preview를 표시합니다.
- * @param {{address: string, appKey?: string, mapQuery: string, venue: string}} props 지도 정보입니다.
+ * @param {{address: string, appKey?: string, mapQuery: string, venue: string, compact?: boolean}} props 지도 정보입니다.
  * @returns {JSX.Element} Kakao map 또는 fallback preview UI를 반환합니다.
  */
-export function KakaoMapPreview({ address, appKey, mapQuery, venue }) {
+export function KakaoMapPreview({ address, appKey, mapQuery, venue, compact = false }) {
   const mapRef = useRef(null);
   const [isMapReady, setIsMapReady] = useState(false);
   const [shouldShowFallback, setShouldShowFallback] = useState(!appKey);
+  const mapHeightClass = compact ? 'h-40' : 'h-56';
 
   useEffect(() => {
     if (!appKey || !mapRef.current) {
@@ -61,9 +62,9 @@ export function KakaoMapPreview({ address, appKey, mapQuery, venue }) {
   }, [appKey, mapQuery]);
 
   return (
-    <div className="mt-6 overflow-hidden rounded-xl border border-wedding-accent/25 bg-wedding-mist">
+    <div className={`${compact ? 'mt-4' : 'mt-6'} overflow-hidden rounded-xl border border-wedding-accent/25 bg-wedding-mist`}>
       {appKey && !shouldShowFallback ? (
-        <div className="relative h-56">
+        <div className={`relative ${mapHeightClass}`}>
           {!isMapReady && (
             <div className="absolute inset-0 z-10 grid place-items-center bg-wedding-mist text-[13px] text-wedding-ink/55">
               카카오맵을 불러오는 중
@@ -72,12 +73,12 @@ export function KakaoMapPreview({ address, appKey, mapQuery, venue }) {
           <div ref={mapRef} className="h-full w-full" aria-label={`${venue} 카카오맵`} />
         </div>
       ) : (
-        <div className="map-preview relative h-56">
+        <div className={`map-preview relative ${mapHeightClass}`}>
           <div className="absolute left-[52%] top-[42%] -translate-x-1/2 -translate-y-full">
             <div className="h-5 w-5 rounded-full border-[5px] border-wedding-accent bg-wedding-white" />
             <div className="mx-auto h-5 w-[2px] bg-wedding-accent" />
           </div>
-          <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/70 bg-white/85 px-4 py-3 text-center shadow-[0_10px_26px_rgba(43,43,43,0.08)]">
+          <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-white/70 bg-white/85 px-3 py-2.5 text-center shadow-[0_10px_26px_rgba(43,43,43,0.08)]">
             <p className="text-[14px] font-semibold text-wedding-ink">{venue}</p>
             <p className="mt-1 text-[12px] text-wedding-ink/60">{address}</p>
           </div>

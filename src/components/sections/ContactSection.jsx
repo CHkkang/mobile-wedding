@@ -18,17 +18,17 @@ export function ContactSection({ contacts, nextId }) {
   ];
 
   return (
-    <Section id="contact" eyebrow="VI" title="Contact" nextId={nextId}>
+    <Section id="contact" eyebrow="VI" title="Contact" nextId={nextId} compact>
       <div className="grid grid-cols-2 gap-3">
         {groupedContacts.map((group) => (
           <div
             key={group.title}
-            className="polish-card wedding-card rounded-[24px] border border-white/80 p-3 shadow-[0_18px_50px_rgba(80,64,54,0.1),inset_0_0_0_1px_rgba(216,196,166,0.16)]"
+            className="polish-card wedding-card flex flex-col rounded-[22px] border border-white/80 p-2.5 shadow-[0_16px_42px_rgba(80,64,54,0.09),inset_0_0_0_1px_rgba(216,196,166,0.16)]"
           >
-            <p className="ui-font text-center text-[13px] font-semibold tracking-[0.18em] text-wedding-champagne">
+            <p className="ui-font text-center text-[12px] font-semibold tracking-[0.16em] text-wedding-champagne">
               {group.title}
             </p>
-            <div className="mt-4 space-y-2">
+            <div className="mt-3 grid flex-1 grid-rows-3 gap-2">
               {group.contacts.map((contact) => (
                 <ContactRow key={contact.label} contact={contact} />
               ))}
@@ -47,12 +47,12 @@ export function ContactSection({ contacts, nextId }) {
  */
 function ContactRow({ contact }) {
   return (
-    <div className="rounded-[18px] border border-wedding-champagne/20 bg-wedding-white/62 p-3 text-center">
-      <p className="ui-font mx-auto inline-flex rounded-full bg-wedding-petal/75 px-2.5 py-1 text-[11px] font-medium text-wedding-ink/65">
+    <div className="flex min-h-[112px] flex-col justify-between rounded-[16px] border border-wedding-champagne/20 bg-wedding-white/62 px-2 py-2.5 text-center">
+      <p className="ui-font mx-auto inline-flex rounded-full bg-wedding-petal/75 px-2 py-0.5 text-[10px] font-medium text-wedding-ink/65">
         {contact.label.replace('신랑 ', '').replace('신부 ', '')}
       </p>
-      <p className="mt-2 text-[15px] font-semibold text-wedding-ink">{contact.name}</p>
-      <div className="mt-3 flex justify-center gap-2">
+      <p className="mt-1.5 text-[14px] font-semibold text-wedding-ink">{contact.name}</p>
+      <div className="mt-2 flex justify-center gap-1.5">
         <ContactLink href={`tel:${contact.phone}`} label={`${contact.label}에게 전화하기`} icon="phone" />
         <ContactLink href={`sms:${contact.phone}`} label={`${contact.label}에게 문자하기`} icon="message" />
       </div>
@@ -68,7 +68,7 @@ function ContactRow({ contact }) {
 function ContactLink({ href, label, icon }) {
   return (
     <a
-      className="pressable flex h-10 w-10 items-center justify-center rounded-full border border-wedding-champagne/40 bg-wedding-white/90 text-wedding-ink/72 shadow-[0_8px_20px_rgba(80,64,54,0.05)]"
+      className="pressable flex h-9 w-9 items-center justify-center rounded-full border border-wedding-champagne/40 bg-wedding-white/90 text-wedding-ink/72 shadow-[0_8px_20px_rgba(80,64,54,0.05)]"
       href={href}
       aria-label={label}
     >

@@ -95,6 +95,10 @@ body::before {
   contain-intrinsic-size: 100svh;
 }
 
+.section-navigator {
+  right: max(10px, calc((100vw - 480px) / 2 + 10px));
+}
+
 .map-preview {
   background:
     linear-gradient(32deg, transparent 0 38%, rgb(var(--color-wedding-white) / 0.72) 38% 43%, transparent 43%),

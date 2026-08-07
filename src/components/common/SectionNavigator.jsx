@@ -59,7 +59,7 @@ export function SectionNavigator() {
 
   return (
     <nav
-      className="fixed right-2.5 top-1/2 z-50 -translate-y-1/2 rounded-full border border-wedding-champagne/30 bg-wedding-white/70 px-1.5 py-2.5 shadow-[0_10px_24px_rgba(43,43,43,0.08)]"
+      className="section-navigator fixed top-1/2 z-50 -translate-y-1/2 rounded-full border border-wedding-champagne/30 bg-wedding-white/70 px-1.5 py-2.5 shadow-[0_10px_24px_rgba(43,43,43,0.08)]"
       aria-label="섹션 이동"
     >
       <div className="flex flex-col items-center gap-1.5">

@@ -30,7 +30,7 @@ export function Section({ id, eyebrow, title, nextId, compact = false, children 
           </span>
         </div>
       </div>
-      {children}
+      <div className="mx-auto w-full max-w-[408px]">{children}</div>
       <ScrollCue targetId={nextId} />
     </section>
   );

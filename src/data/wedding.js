@@ -1,3 +1,6 @@
+import { weddingImages } from './images';
+import { introVideo } from './video';
+
 export const wedding = {
   groom: '강찬혁',
   bride: '김민지',
@@ -8,16 +11,7 @@ export const wedding = {
   hall: 'B1 그랜드컨벤션홀',
   address: '서울 영등포구 은행로 30',
   mapQuery: '여의도 더 파티움',
-  images: {
-    hero:
-      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1100&q=88',
-    gallery: [
-      'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85',
-      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85',
-      'https://images.unsplash.com/photo-1509927083803-4bd519298ac4?auto=format&fit=crop&w=900&q=85',
-      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85',
-    ],
-  },
+  images: weddingImages,
   calendar: {
     title: '강찬혁 & 김민지 결혼합니다',
     startDateTime: '2026-12-12T11:00:00+09:00',
@@ -30,48 +24,44 @@ export const wedding = {
       label: '신랑',
       side: 'groom',
       name: '강찬혁',
-      phone: '010-3053-5801',
+      phone: '010-0000-0001',
     },
     {
       label: '신부',
       side: 'bride',
       name: '김민지',
-      phone: '010-3177-5077',
+      phone: '010-0000-0002',
     },
     {
       label: '신랑 아버지',
       side: 'groom',
       name: '강기홍',
-      phone: '010-5231-1127',
+      phone: '010-0000-0003',
     },
     {
       label: '신랑 어머니',
       side: 'groom',
       name: '김은이',
-      phone: '010-2452-6656',
+      phone: '010-0000-0004',
     },
     {
       label: '신부 아버지',
       side: 'bride',
       name: '김영수',
-      phone: '010-9192-2978',
+      phone: '010-0000-0005',
     },
     {
       label: '신부 어머니',
       side: 'bride',
       name: '윤희자',
-      phone: '010-5539-2978',
+      phone: '010-0000-0006',
     },
   ],
   bgm: {
     title: 'Wedding BGM',
     src: '/audio/wedding-bgm.mp3',
   },
-  introVideo: {
-    youtubeId: 'vhpQPqpw3b4',
-    greeting: '우리 결혼해요',
-    durationMs: 5200,
-  },
+  introVideo,
   parents: {
     groom: '강기홍 · 김은이의 아들 찬혁',
     bride: '김영수 · 윤희자의 딸 민지',
@@ -83,7 +73,7 @@ export const wedding = {
       bank: '국민은행',
       number: '000000-00-000000',
       holder: '강찬혁',
-      kakaoPayUrl: 'https://qr.kakaopay.com/FbBWkGtyh',
+      kakaoPayUrl: '',
       tossUrl: '',
     },
     {

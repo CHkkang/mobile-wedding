@@ -108,8 +108,9 @@ function GallerySlide({ image, index, isActive, onSelect }) {
         <span className="font-script text-[34px] leading-none text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.42)]">
           Memories
         </span>
-        <span className="ui-font rounded-full border border-white/50 bg-wedding-white/90 px-3 py-2 text-[11px] font-semibold text-wedding-ink/72 shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
-          크게 보기
+        <span className="ui-font inline-flex items-center gap-1.5 rounded-full border border-white/65 bg-black/68 px-3.5 py-2.5 text-[11px] font-semibold text-white shadow-[0_12px_26px_rgba(0,0,0,0.28)] backdrop-blur-sm">
+          <span aria-hidden="true">＋</span>
+          사진 크게 보기
         </span>
       </div>
     </button>
@@ -130,7 +131,7 @@ function GallerySlideProgress({ activeIndex, count }) {
             key={index}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === activeIndex
-                ? 'w-7 bg-wedding-terracotta'
+                ? 'w-7 bg-wedding-champagne'
                 : 'w-1.5 bg-wedding-ink/18'
             }`}
           />

@@ -47,7 +47,7 @@ export function HeroSection({ wedding, nextId }) {
         </p>
       </div>
       <div className="absolute bottom-5 left-0 right-0 z-10">
-        <ScrollCue targetId={nextId} tone="light" />
+        <ScrollCue targetId={nextId} tone="light" label="초대장 열어보기" />
       </div>
     </section>
   );

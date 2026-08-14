@@ -77,6 +77,7 @@ export default function App() {
       {isIntroVisible && (
         <IntroVideoOverlay
           videoId={wedding.introVideo.youtubeId}
+          videoSrc={wedding.introVideo.videoSrc}
           greeting={wedding.introVideo.greeting}
           durationMs={wedding.introVideo.durationMs}
           onFinish={() => setIsIntroVisible(false)}

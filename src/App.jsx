@@ -72,6 +72,16 @@ export default function App() {
     await handleCopy(window.location.href, '청첩장 링크가 복사되었습니다.');
   };
 
+  /**
+   * Intro 종료 시 항상 첫 화면 hero section으로 이동한 뒤 본문을 표시합니다.
+   * @returns {void}
+   */
+  const handleIntroFinish = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    document.getElementById('top')?.scrollIntoView({ block: 'start' });
+    setIsIntroVisible(false);
+  };
+
   return (
     <main className="min-h-[100svh] bg-wedding-ivory text-wedding-ink">
       {isIntroVisible && (
@@ -80,7 +90,7 @@ export default function App() {
           videoSrc={wedding.introVideo.videoSrc}
           greeting={wedding.introVideo.greeting}
           durationMs={wedding.introVideo.durationMs}
-          onFinish={() => setIsIntroVisible(false)}
+          onFinish={handleIntroFinish}
         />
       )}
       <div className="mx-auto max-w-[480px] overflow-hidden bg-wedding-ivory shadow-[0_0_70px_rgba(43,43,43,0.08)]">

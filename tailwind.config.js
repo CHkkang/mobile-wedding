@@ -26,8 +26,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Maru Buri', 'Noto Sans KR', 'serif'],
-        body: ['Maru Buri', 'Noto Sans KR', 'serif'],
+        display: ['Nanum Myeongjo', 'Noto Sans KR', 'serif'],
+        body: ['Nanum Myeongjo', 'Noto Sans KR', 'serif'],
         ui: ['Noto Sans KR', 'sans-serif'],
       },
     },

@@ -1,3 +1,5 @@
+import { ScrollCue } from '../common/ScrollCue';
+
 /**
  * 마지막 감사 인사를 담는 closing section입니다.
  * @param {{wedding: {groom: string, bride: string}, onShare: () => Promise<void>}} props Wedding 기본 정보와 share handler입니다.
@@ -5,8 +7,11 @@
  */
 export function ThanksSection({ wedding, onShare }) {
   return (
-    <section id="thanks" className="snap-section flex flex-col justify-center px-6 py-8 text-center">
-      <div className="relative overflow-hidden rounded-[28px] border border-white/75 bg-wedding-white/72 px-5 pb-7 pt-6 shadow-[0_18px_46px_rgba(80,64,54,0.09),inset_0_0_0_1px_rgba(216,196,166,0.16)]">
+    <section id="thanks" className="snap-section grid grid-rows-[104px_minmax(0,1fr)] px-6 text-center">
+      <div className="flex items-end justify-center pb-5">
+        <ScrollCue targetId="contact" direction="up" />
+      </div>
+      <div className="relative self-center overflow-hidden rounded-[28px] border border-white/75 bg-wedding-white/72 px-5 pb-7 pt-6 shadow-[0_18px_46px_rgba(80,64,54,0.09),inset_0_0_0_1px_rgba(216,196,166,0.16)]">
         <div className="absolute -left-8 top-8 h-24 w-24 rounded-full bg-wedding-petal/55 blur-2xl" />
         <div className="absolute -right-10 bottom-16 h-28 w-28 rounded-full bg-wedding-sage/25 blur-2xl" />
         <div className="relative">

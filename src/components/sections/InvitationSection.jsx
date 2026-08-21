@@ -14,14 +14,23 @@ export function InvitationSection({ parents, nextId }) {
         </div>
         <div className="space-y-5 text-[15px] leading-8 text-wedding-ink/78">
           <p>
-            서로의 계절을 따뜻하게 채워 온 두 사람이
+            학창 시절, 서로의 이름을 처음 알게 된 두 사람이
             <br />
-            이제 하나의 겨울을 함께 맞이하려 합니다.
+            오랜 시간 곁에서 서로의 성장을 지켜보다
+            <br />
+            어느 날 연인이 되었습니다.
           </p>
           <p>
-            소중한 걸음으로 축복해 주시면
+            그리고 이제,
             <br />
-            오래도록 깊이 간직하겠습니다.
+            서로의 가장 가까운 사람이 되어
+            <br />
+            평생을 함께 걸어가려 합니다.
+          </p>
+          <p>
+            저희의 새로운 시작을
+            <br />
+            따뜻한 마음으로 축복해 주세요.
           </p>
           <ParentNames parents={parents} />
         </div>

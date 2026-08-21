@@ -157,9 +157,10 @@ function GallerySlideProgress({ activeIndex, count }) {
           />
         ))}
       </div>
-      <div className="ui-font flex items-center gap-2 text-[11px] font-semibold text-wedding-ink/48">
-        <span>옆으로 넘겨보기</span>
-        <span className="gallery-swipe-arrow" aria-hidden="true" />
+      <div className="ui-font inline-flex items-center gap-1.5 rounded-full border border-wedding-champagne/25 bg-wedding-white/54 px-2.5 py-1 text-[10px] font-semibold tracking-[0.16em] text-wedding-ink/38">
+        <span aria-hidden="true" className="text-wedding-champagne/70">‹</span>
+        <span>SWIPE</span>
+        <span aria-hidden="true" className="text-wedding-champagne/70">›</span>
       </div>
     </div>
   );

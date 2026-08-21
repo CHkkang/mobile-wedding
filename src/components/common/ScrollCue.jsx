@@ -1,9 +1,9 @@
 /**
  * 다음 section으로 이어지는 visual cue입니다.
- * @param {{targetId?: string, tone?: 'light' | 'dark', label?: string}} props Scroll target id와 색상 tone, CTA label입니다.
+ * @param {{targetId?: string, tone?: 'light' | 'dark', label?: string, direction?: 'up' | 'down'}} props Scroll target id와 색상 tone, CTA label, 방향입니다.
  * @returns {JSX.Element | null} 아래 방향 indicator button을 반환합니다.
  */
-export function ScrollCue({ targetId, tone = 'dark', label }) {
+export function ScrollCue({ targetId, tone = 'dark', label, direction = 'down' }) {
   if (!targetId) {
     return null;
   }
@@ -36,7 +36,10 @@ export function ScrollCue({ targetId, tone = 'dark', label }) {
         aria-label="다음 섹션으로 이동"
         onClick={handleScroll}
       >
-        <span aria-hidden="true" className="scroll-cue-arrow" />
+        <span
+          aria-hidden="true"
+          className={`scroll-cue-arrow ${direction === 'up' ? 'scroll-cue-arrow-up' : ''}`}
+        />
       </button>
     </div>
   );

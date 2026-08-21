@@ -1,6 +1,16 @@
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import { ScrollCue } from './ScrollCue';
 
+const previousSectionIds = {
+  invitation: 'top',
+  info: 'invitation',
+  location: 'info',
+  gallery: 'location',
+  gift: 'gallery',
+  contact: 'gift',
+  thanks: 'contact',
+};
+
 /**
  * 청첩장 본문 section의 공통 layout component입니다.
  * @param {{id: string, eyebrow?: string, title: string, nextId?: string, compact?: boolean, children: React.ReactNode}} props Section props입니다.
@@ -8,13 +18,19 @@ import { ScrollCue } from './ScrollCue';
  */
 export function Section({ id, eyebrow, title, nextId, compact = false, children }) {
   const [sectionRef, isVisible] = useRevealOnScroll();
+  const previousId = previousSectionIds[id];
 
   return (
     <section
       id={id}
       ref={sectionRef}
-      className={`snap-section reveal-section relative flex flex-col justify-center px-6 ${compact ? 'pb-24 pt-8' : 'pb-24 pt-12'} ${isVisible ? 'is-visible' : ''}`}
+      className={`snap-section reveal-section relative flex flex-col justify-center px-6 pb-24 pt-20 ${isVisible ? 'is-visible' : ''}`}
     >
+      {previousId && (
+        <div className="absolute left-0 right-0 top-5">
+          <ScrollCue targetId={previousId} direction="up" />
+        </div>
+      )}
       <div className={`${compact ? 'mb-4' : 'mb-7'} text-center`}>
         {eyebrow && (
           <p className="ui-font text-[11px] font-medium uppercase tracking-[0.34em] text-wedding-champagne">

@@ -44,5 +44,5 @@ export const introVideo = {
   youtubeUrl: introVideoUrl,
   youtubeId: introVideoFile ? '' : getYouTubeVideoId(introVideoUrl),
   greeting: '우리 결혼해요',
-  durationMs: 5200,
+  durationMs: 10000,
 };

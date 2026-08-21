@@ -31,7 +31,7 @@ export function LocationSection({ wedding, nextId, onCopy }) {
         />
         <div className="mt-4 grid grid-cols-3 gap-2">
           <button
-            className="pressable luxury-button rounded-full border border-wedding-champagne/55 px-3 py-2.5 text-[12px] font-semibold text-wedding-ink/75 shadow-[0_8px_18px_rgba(80,64,54,0.07)] hover:border-wedding-blush hover:text-wedding-ink"
+            className="pressable luxury-button flex min-h-10 items-center justify-center whitespace-nowrap rounded-full border border-wedding-champagne/55 px-2.5 text-[12px] font-semibold text-wedding-ink/75 shadow-[0_8px_18px_rgba(80,64,54,0.07)] hover:border-wedding-blush hover:text-wedding-ink"
             type="button"
             onClick={() =>
               window.open(
@@ -43,14 +43,14 @@ export function LocationSection({ wedding, nextId, onCopy }) {
             카카오맵
           </button>
           <button
-            className="pressable luxury-button rounded-full border border-wedding-champagne/55 px-3 py-2.5 text-[12px] font-semibold text-wedding-ink/75 shadow-[0_8px_18px_rgba(80,64,54,0.07)] hover:border-wedding-blush hover:text-wedding-ink"
+            className="pressable luxury-button flex min-h-10 items-center justify-center whitespace-nowrap rounded-full border border-wedding-champagne/55 px-2.5 text-[12px] font-semibold text-wedding-ink/75 shadow-[0_8px_18px_rgba(80,64,54,0.07)] hover:border-wedding-blush hover:text-wedding-ink"
             type="button"
             onClick={() => onCopy(wedding.address, '주소가 복사되었습니다.')}
           >
             주소 복사
           </button>
           <button
-            className="pressable luxury-button rounded-full border border-wedding-champagne/55 px-3 py-2.5 text-[12px] font-semibold text-wedding-ink/75 shadow-[0_8px_18px_rgba(80,64,54,0.07)] hover:border-wedding-blush hover:text-wedding-ink"
+            className="pressable luxury-button flex min-h-10 items-center justify-center whitespace-nowrap rounded-full border border-wedding-champagne/55 px-2.5 text-[12px] font-semibold text-wedding-ink/75 shadow-[0_8px_18px_rgba(80,64,54,0.07)] hover:border-wedding-blush hover:text-wedding-ink"
             type="button"
             onClick={() => setIsTransitModalOpen(true)}
           >

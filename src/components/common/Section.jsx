@@ -24,14 +24,14 @@ export function Section({ id, eyebrow, title, nextId, compact = false, children 
     <section
       id={id}
       ref={sectionRef}
-      className={`snap-section reveal-section relative flex flex-col justify-center px-6 pb-24 pt-20 ${isVisible ? 'is-visible' : ''}`}
+      className={`snap-section reveal-section grid grid-rows-[84px_auto_minmax(0,1fr)_84px] px-6 ${isVisible ? 'is-visible' : ''}`}
     >
-      {previousId && (
-        <div className="absolute left-0 right-0 top-5">
+      <div className="flex items-center justify-center">
+        {previousId && (
           <ScrollCue targetId={previousId} direction="up" />
-        </div>
-      )}
-      <div className={`${compact ? 'mb-4' : 'mb-7'} text-center`}>
+        )}
+      </div>
+      <div className="text-center">
         {eyebrow && (
           <p className="ui-font text-[11px] font-medium uppercase tracking-[0.34em] text-wedding-champagne">
             {eyebrow}
@@ -46,8 +46,8 @@ export function Section({ id, eyebrow, title, nextId, compact = false, children 
           </span>
         </div>
       </div>
-      <div className="mx-auto w-full max-w-[408px]">{children}</div>
-      <div className="absolute bottom-5 left-0 right-0">
+      <div className="mx-auto mt-4 w-full max-w-[408px] self-start">{children}</div>
+      <div className="flex items-center justify-center">
         <ScrollCue targetId={nextId} />
       </div>
     </section>

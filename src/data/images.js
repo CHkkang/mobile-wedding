@@ -5,11 +5,11 @@
  * 예: hero: '/images/hero.jpg'
  */
 export const weddingImages = {
-  hero: '/images/hero.jpg',
+  hero: '/images/hero.jpeg',
   gallery: [
-    '/images/gallery-01.jpg',
-    '/images/gallery-02.jpg',
-    '/images/gallery-03.jpg',
-    '/images/gallery-04.jpg',
+    '/images/gallery-01.jpeg',
+    '/images/gallery-02.jpeg',
+    '/images/gallery-03.jpeg',
+    '/images/gallery-04.jpeg',
   ],
 };

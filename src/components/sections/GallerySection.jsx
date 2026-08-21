@@ -108,12 +108,32 @@ function GallerySlide({ image, index, isActive, onSelect }) {
         <span className="font-script text-[34px] leading-none text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.42)]">
           Memories
         </span>
-        <span className="ui-font inline-flex items-center gap-1.5 rounded-full border border-white/65 bg-black/68 px-3.5 py-2.5 text-[11px] font-semibold text-white shadow-[0_12px_26px_rgba(0,0,0,0.28)] backdrop-blur-sm">
-          <span aria-hidden="true">＋</span>
-          사진 크게 보기
+        <span className="ui-font inline-flex items-center gap-2 rounded-full border border-white/55 bg-white/18 py-1.5 pl-2 pr-3 text-[10px] font-semibold tracking-[0.18em] text-white shadow-[0_12px_26px_rgba(0,0,0,0.18)] backdrop-blur-md transition group-hover:bg-white/24">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/88 text-wedding-ink/68 shadow-[0_8px_18px_rgba(0,0,0,0.14)]">
+            <ExpandIcon />
+          </span>
+          VIEW
         </span>
       </div>
     </button>
+  );
+}
+
+/**
+ * 갤러리 사진 확대 action을 나타내는 icon입니다.
+ * @returns {JSX.Element} Expand icon SVG를 반환합니다.
+ */
+function ExpandIcon() {
+  return (
+    <svg aria-hidden="true" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M9 5H5v4M15 5h4v4M9 19H5v-4M15 19h4v-4"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
   );
 }
 

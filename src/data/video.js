@@ -1,5 +1,5 @@
 const introVideoUrl = 'https://youtu.be/vhpQPqpw3b4?si=Iot2-m-XIVz82zbJ';
-const introVideoFile = '/video/intro.mov';
+const introVideoFile = '/video/intro.mp4';
 
 /**
  * YouTube URL 또는 video id에서 embed에 사용할 video id를 추출합니다.

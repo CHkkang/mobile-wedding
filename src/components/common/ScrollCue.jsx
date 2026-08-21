@@ -22,7 +22,7 @@ export function ScrollCue({ targetId, tone = 'dark', label }) {
       : 'border-wedding-champagne/45 bg-wedding-white/88 text-wedding-ink/70 shadow-[0_12px_28px_rgba(80,64,54,0.1)]';
 
   return (
-    <div className="mt-7 flex flex-col items-center justify-center gap-2">
+    <div className="flex flex-col items-center justify-center gap-2">
       {label && (
         <p className={`ui-font text-[12px] font-semibold tracking-[0.18em] ${
           tone === 'light' ? 'text-white/82' : 'text-wedding-ink/52'

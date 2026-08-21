@@ -13,7 +13,7 @@ export function Section({ id, eyebrow, title, nextId, compact = false, children 
     <section
       id={id}
       ref={sectionRef}
-      className={`snap-section reveal-section flex flex-col justify-center px-6 ${compact ? 'py-8' : 'py-12'} ${isVisible ? 'is-visible' : ''}`}
+      className={`snap-section reveal-section relative flex flex-col justify-center px-6 ${compact ? 'pb-24 pt-8' : 'pb-24 pt-12'} ${isVisible ? 'is-visible' : ''}`}
     >
       <div className={`${compact ? 'mb-4' : 'mb-7'} text-center`}>
         {eyebrow && (
@@ -31,7 +31,9 @@ export function Section({ id, eyebrow, title, nextId, compact = false, children 
         </div>
       </div>
       <div className="mx-auto w-full max-w-[408px]">{children}</div>
-      <ScrollCue targetId={nextId} />
+      <div className="absolute bottom-5 left-0 right-0">
+        <ScrollCue targetId={nextId} />
+      </div>
     </section>
   );
 }
